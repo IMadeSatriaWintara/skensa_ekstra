@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col-lg-6 text-center">
-                <img src="{{ asset('images/hero-image.png') }}" alt="Hero Image" class="img-fluid" style="max-width: 500px;">
+                <img src="{{ asset('assets/hero.png') }}" alt="Hero Image" class="img-fluid" style="max-width: 500px;">
             </div>
         </div>
     </div>
