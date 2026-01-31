@@ -6,23 +6,13 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function login()
     {
-        try {
-            return view('BACKEND.dashboard.index');
-        } catch (\Exception $e) {
-            // Fallback jika view tidak ditemukan
-            abort(404, 'View not found: ' . $e->getMessage());
-        }
+        return view('BACKEND.login');
     }
     
     public function dashboard()
     {
-        try {
-            return view('BACKEND.dashboard.index');
-        } catch (\Exception $e) {
-            // Fallback jika view tidak ditemukan
-            abort(404, 'View not found: ' . $e->getMessage());
-        }
+        return view('BACKEND.Layout.admin');
     }
 }
