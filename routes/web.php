@@ -21,5 +21,6 @@ Route::get('/login', function () {
     return view('BACKEND.login');
 });
 
+Route::get('/backoffice', [AdminController::class, 'backoffice'])->name('backoffice');
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 

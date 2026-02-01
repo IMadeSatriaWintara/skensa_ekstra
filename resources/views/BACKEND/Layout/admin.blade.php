@@ -69,7 +69,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('aset/user.jpg') }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('assets/user.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="/dashboard" class="d-block"></a>
@@ -115,20 +115,12 @@
             </a>
           </li>
 
-          <!-- Review -->
-          <li class="nav-item">
-            <a href="/review" class="nav-link">
-              <i class="nav-icon fas fa-star"></i>
-              <p>Review</p>
-            </a>
-          </li>
-
           <!-- Pemilik Fasilitas -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
-                Pemilik Fasilitas
+                Admin Ekstrakurikuler
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -136,13 +128,13 @@
               <li class="nav-item">
                 <a href="/venue" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Venue</p>
+                  <p>Kategori</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/tempat-sehat" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tempat Sehat</p>
+                  <p>Data Ekstrakurikuler</p>
                 </a>
               </li>
             </ul>
@@ -153,24 +145,10 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
-                Aktivitas
-                <i class="right fas fa-angle-left"></i>
+                Prestasi
+               
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/venue" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Komunitas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/tempat-sehat" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Klub</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <!-- Blog & News -->

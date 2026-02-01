@@ -11,8 +11,12 @@ class AdminController extends Controller
         return view('BACKEND.login');
     }
     
-    public function dashboard()
+    public function backoffice()
     {
         return view('BACKEND.Layout.admin');
+    }
+    public function dashboard()
+    {
+        return view('BACKEND.dashboard.dashboard');
     }
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kailas Garden | Log In</title>
+  <title>SKEXTRA | Log In</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,16 +22,16 @@
         <img src="{{ asset('assets/logo.png') }}" 
             alt="Logo" 
             class="img-fluid" 
-            style="max-width: 200px;"> 
+            style="max-width: 110px;"> 
     </a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Login to start session</p>
+      <p class="login-box-msg">Login Untuk Masuk Ke Dashboard</p>
 
       <form action="/loginproses" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <input type="username" class="form-control" name="Username" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" name="Password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
