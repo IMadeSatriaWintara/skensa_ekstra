@@ -1,9 +1,18 @@
 <!-- Header Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
     <div class="container-fluid px-3 px-lg-4">
-        <a class="navbar-brand py-0" href="#">
-            <img src="{{ asset('assets/LOGO.png') }}" alt="Logo" height="40" class="img-fluid" style="max-width: 60px;">
-        </a>
+      <a class="navbar-brand d-flex align-items-center gap-2 py-0" href="#">
+    <img src="{{ asset('assets/LOGO.png') }}" 
+         alt="Logo" 
+         class="img-fluid navbar-logo">
+
+    <div class="brand-text d-flex flex-column">
+        <span class="brand-title">SIEKSTRA</span>
+        <span class="brand-subtitle">Sistem Ekstrakurikuler</span>
+    </div>
+</a>
+
+
         
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -70,4 +79,38 @@
             color: #0d6efd !important;
         }
     }
+
+    .navbar-logo {
+    max-width: 60px;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #1a1a1a;
+    line-height: 1.1;
+}
+
+.brand-subtitle {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.2;
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+    .brand-title {
+        font-size: 15px;
+    }
+
+    .brand-subtitle {
+        font-size: 10.5px;
+    }
+
+    .navbar-logo {
+        height: 34px;
+    }
+}
+
+
 </style>

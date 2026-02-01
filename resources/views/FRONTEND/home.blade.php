@@ -3,6 +3,164 @@
 @section('title', 'Sistem Manajemen Ekstrakurikuler')
 
 @section('content')
+<style>
+    .eksul-feature {
+    background-color: #f9f9f9;
+}
+
+.feature-box {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.vertical-line {
+    width: 1px;
+    height: 80px;
+    background-color: #ddd;
+}
+
+.feature-icon {
+    font-size: 42px;
+    color: #000;
+}
+
+.feature-item p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* =========================
+   RESPONSIVE SETTINGS
+========================= */
+
+/* Tablet & Mobile */
+@media (max-width: 991px) {
+
+    /* Hero */
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+
+    .hero-section .search-box {
+        flex-direction: column;
+    }
+
+    .hero-section .search-box input,
+    .hero-section .search-box button {
+        width: 100%;
+    }
+
+    /* Feature box */
+    .feature-box {
+        padding: 2rem !important;
+    }
+
+    .feature-box h2 {
+        font-size: 1.6rem;
+    }
+
+    .feature-box .row.align-items-center {
+        text-align: center;
+    }
+
+    .vertical-line {
+        display: none;
+    }
+
+    /* Features */
+    .feature-item {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .feature-icon {
+        font-size: 36px;
+    }
+}
+
+/* Mobile kecil */
+@media (max-width: 576px) {
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .statistics-section h3 {
+        font-size: 2.5rem;
+    }
+
+    .cta-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .cta-section .lead {
+        font-size: 1rem;
+    }
+
+    .cta-section .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Search Box */
+.search-wrapper {
+    max-width: 480px;
+}
+
+.search-form {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 52px 14px 20px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+}
+
+.search-btn {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: #4a90e2;
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+@media (max-width: 576px) {
+    .search-wrapper {
+        max-width: 100%;
+    }
+}
+
+</style>
 
 <!-- Hero Section -->
 <section class="hero-section py-5" style="background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
@@ -11,67 +169,90 @@
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <h1 class="display-4 fw-bold mb-3" style="color: #1a1a1a;">Sistem Manajemen Ekstrakurikuler</h1>
                 <p class="lead text-muted mb-4">Solusi digital untuk pengelolaan eskul yang lebih rapi dan efisien.</p>
-                <div class="search-box d-flex gap-2 mb-5">
-                    <input type="text" class="form-control form-control-lg" placeholder="Cari Ekstrakurikuler...">
-                    <button class="btn btn-primary btn-lg px-4">
+               <div class="search-wrapper mb-5">
+                <form class="search-form">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Cari Ekstrakurikuler..."
+                    >
+                    <button type="submit" class="search-btn">
                         <i class="bi bi-search"></i>
                     </button>
-                </div>
+                </form>
             </div>
-            <div class="col-lg-6 text-center">
-                <img src="{{ asset('assets/hero.png') }}" alt="Hero Image" class="img-fluid" style="max-width: 500px;">
             </div>
+            <img src="{{ asset('assets/hero.png') }}" 
+             alt="Hero Image"
+            class="img-fluid"
+             style="max-width: 500px; width: 100%;">
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section class="features-section py-5" style="background-color: #f9f9f9;">
+<section class="eksul-feature py-5">
     <div class="container">
-        <div class="text-center mb-5">
-            <p class="text-primary fw-bold mb-2">SISTEM EKSTRAKURIKULER</p>
-            <h2 class="fw-bold mb-4">Pengelolaan Ekstrakurikuler yang Lebih Terstruktur</h2>
-        </div>
-        <div class="row g-4">
-            <!-- Feature 1 -->
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-person-check" style="font-size: 3rem; color: #4a90e2;"></i>
-                        </div>
-                        <h5 class="card-title fw-bold mb-3">Pendaftaran Mudah</h5>
-                        <p class="card-text text-muted">Proses pendaftaran yang mudah dan cepat untuk mengikuti ekstrakurikuler yang diinginkan.</p>
-                    </div>
+        <div class="feature-box p-5">
+            <!-- Header -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <p class="text-primary fw-semibold mb-2">SISTEM EKSTRAKURIKULER</p>
+                    <h2 class="fw-bold">
+                        Pengelolaan Ekstrakurikuler <br>
+                        yang Lebih Terstruktur
+                    </h2>
+                </div>
+                <div class="col-md-1 d-none d-md-flex justify-content-center">
+                    <div class="vertical-line"></div>
+                </div>
+                <div class="col-md-5">
+                    <p class="text-muted mb-0">
+                        Sistem berbasis web yang membantu sekolah mengelola
+                        kegiatan ekstrakurikuler secara efektif.
+                    </p>
                 </div>
             </div>
-            <!-- Feature 2 -->
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-calendar-event" style="font-size: 3rem; color: #4a90e2;"></i>
-                        </div>
-                        <h5 class="card-title fw-bold mb-3">Jadwal Terorganisir</h5>
-                        <p class="card-text text-muted">Manajemen jadwal kegiatan yang terstruktur dan terintegrasi dengan sistem yang mudah dipahami.</p>
+
+            <!-- Features -->
+           <div class="row text-start text-md-start text-center">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="bi bi-person-plus feature-icon"></i>
+                        <h5 class="fw-bold mt-3">Pendaftaran Mudah</h5>
+                        <p class="text-muted">
+                            Siswa dapat mendaftar ekstrakurikuler secara online,
+                            dengan status pendaftaran yang jelas dan transparan.
+                        </p>
                     </div>
                 </div>
-            </div>
-            <!-- Feature 3 -->
-            <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-trophy" style="font-size: 3rem; color: #4a90e2;"></i>
-                        </div>
-                        <h5 class="card-title fw-bold mb-3">Kegiatan & Prestasi</h5>
-                        <p class="card-text text-muted">Catat kegiatan dan prestasi siswa dalam satu platform yang terintegrasi dengan sistem.</p>
+
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="bi bi-calendar-check feature-icon"></i>
+                        <h5 class="fw-bold mt-3">Jadwal Terorganisir</h5>
+                        <p class="text-muted">
+                            Kelola jadwal latihan setiap ekstrakurikuler dengan rapi
+                            dan hindari bentrok waktu antar kegiatan.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="bi bi-trophy feature-icon"></i>
+                        <h5 class="fw-bold mt-3">Kegiatan & Prestasi</h5>
+                        <p class="text-muted">
+                            Catat kegiatan dan prestasi ekstrakurikuler sebagai
+                            dokumentasi sekolah.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- Benefits Section -->
 <section class="benefits-section py-5" style="background-color: #ffffff;">
