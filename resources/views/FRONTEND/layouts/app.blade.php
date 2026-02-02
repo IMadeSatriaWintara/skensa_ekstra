@@ -12,6 +12,13 @@
     
     @yield('styles')
 </head>
+<style>
+    html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+</style>
 <body>
     <!-- Navbar -->
     @include('FRONTEND.layouts.navbar')

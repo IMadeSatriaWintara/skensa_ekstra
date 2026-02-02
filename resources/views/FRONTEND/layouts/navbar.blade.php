@@ -112,5 +112,17 @@
     }
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+
+}
+section {
+    overflow-x: hidden;
+}
+
+.navbar {
+    overflow-x: hidden;
+}
 
 </style>
