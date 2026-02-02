@@ -117,12 +117,11 @@ img {
     height: auto;
 
 }
-section {
+.hero-section,
+.eksul-feature,
+.news-section {
     overflow-x: hidden;
 }
 
-.navbar {
-    overflow-x: hidden;
-}
 
 </style>
