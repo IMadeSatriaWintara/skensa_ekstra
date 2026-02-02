@@ -257,36 +257,89 @@
 <!-- Benefits Section -->
 <section class="benefits-section py-5" style="background-color: #ffffff;">
     <div class="container">
+
+        <!-- Header -->
         <div class="text-center mb-5">
             <p class="text-primary fw-bold mb-2">KEUNGGULAN SISTEM</p>
-            <h2 class="fw-bold mb-4">Mengapa Sistem Ini Dibutuhkan Sekolah</h2>
+            <h2 class="fw-bold">Mengapa Sistem Ini Dibutuhkan Sekolah</h2>
         </div>
+
         <div class="row g-4">
+
+            <!-- Card 10+ Ekskul -->
             <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <h5 class="card-title fw-bold mb-3">
-                            <span style="font-size: 2.5rem; color: #4a90e2;">10+</span>
+                <div class="card h-100 border-0 shadow-sm rounded-4">
+                    <div class="card-body p-5 d-flex flex-column justify-content-center">
+                        <h1 class="fw-bold mb-3" style="font-size: 3.5rem; color: #4a90e2;">10+</h1>
+                        <h5 class="fw-semibold mb-0">
+                            Kegiatan Ekstrakurikuler<br>
+                            Terkelola
                         </h5>
-                        <p class="card-text text-muted">Kegiatan Ekstrakurikuler Tersekolah</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Card Realtime -->
             <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <i class="bi bi-cloud" style="font-size: 1.5rem; color: #4a90e2;"></i>
-                            <i class="bi bi-arrow-left-right" style="font-size: 1.5rem; color: #4a90e2;"></i>
-                            <i class="bi bi-cloud" style="font-size: 1.5rem; color: #4a90e2;"></i>
+                <div class="card h-100 border-0 shadow-sm rounded-4">
+                    <div class="card-body p-5">
+                        <h5 class="fw-bold mb-4">Akses & Pengelolaan Real-Time</h5>
+
+                        <div class="d-flex align-items-center justify-content-between text-muted">
+                            <i class="bi bi-laptop fs-1"></i>
+                            <i class="bi bi-arrow-left-right fs-2"></i>
+                            <i class="bi bi-cloud fs-1"></i>
                         </div>
-                        <p class="card-text text-muted">Akses & Pengelolaan Real-Time</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Informasi Terbaru -->
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm rounded-4">
+                    <div class="card-body p-5">
+                        <div class="d-flex align-items-start gap-3 mb-3">
+                            <i class="bi bi-megaphone fs-2"></i>
+                            <h5 class="fw-bold mb-0">Informasi Selalu Terbaru</h5>
+                        </div>
+
+                        <p class="text-muted mb-3">
+                            Setiap perubahan jadwal atau kegiatan dapat langsung
+                            diketahui oleh siswa dan admin secara real-time.
+                        </p>
+
+                        <ul class="text-muted mb-0">
+                            <li>Update otomatis</li>
+                            <li>Akses cepat</li>
+                            <li>Informasi akurat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistik Siswa -->
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm rounded-4">
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold mb-0">Pertumbuhan Partisipasi Siswa</h6>
+                            <small class="text-muted">+6 Months</small>
+                        </div>
+
+                        <p class="text-muted mb-2">Summary</p>
+                        <h3 class="fw-bold mb-4">800+ Siswa</h3>
+
+                        <!-- Dummy Chart -->
+                        <div style="height:120px; background: linear-gradient(135deg, #dbeafe, #eff6ff); border-radius: 12px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
+
 
 <!-- News Section -->
 <section class="news-section py-5" style="background-color: #f9f9f9;">
