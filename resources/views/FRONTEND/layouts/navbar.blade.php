@@ -20,11 +20,11 @@
         
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center text-lg-start">
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="#beranda" style="color: #333;">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="/" style="color: #333;">Beranda</a></li>
                 <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="#eskul" style="color: #333;">Ekskul</a></li>
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="#berita" style="color: #333;">Berita</a></li>
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="#prestasi" style="color: #333;">Prestasi</a></li>
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="#tentang" style="color: #333;">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="/berita" style="color: #333;">Berita</a></li>
+                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="/prestasi" style="color: #333;">Prestasi</a></li>
+                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="/tentang" style="color: #333;">Tentang</a></li>
                 <!-- Button Daftar di Mobile -->
                 <li class="nav-item d-lg-none mt-3"><a class="btn btn-primary text-white fw-500 px-4 w-100" href="#daftar">Daftar</a></li>
             </ul>

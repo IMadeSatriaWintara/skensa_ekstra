@@ -13,9 +13,25 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+// FRONTEND
 Route::get('/', function () {
     return view('FRONTEND.home');
 });
+Route::get('/berita', function () {
+    return view('FRONTEND.berita');
+});
+Route::get('/detailberita', function () {
+    return view('FRONTEND.detailberita');
+});
+Route::get('/prestasi', function () {
+    return view('FRONTEND.prestasi');
+});
+Route::get('/tentang', function () {
+    return view('FRONTEND.tentang');
+});
+
+
+
 
 Route::get('/login', function () {
     return view('BACKEND.login');
