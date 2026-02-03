@@ -23,7 +23,8 @@
             Berita & Informasi Terbaru
         </h1>
         <p class="text-sm md:text-base text-gray-200 max-w-xl">
-            Berita terkini seputar kegiatan, prestasi, dan agenda sekolah
+            Berita terbaruUpdate terkini seputar kegiatan, prestasi,
+             dan agenda ekstrakurikuler di sekolah kami. dari website kami
         </p>
     </div>
 </div>
@@ -150,7 +151,7 @@
                 <section class="space-y-4">
 
                     <!-- Item -->
-                    <section class="flex gap-4">
+                    <a href="/detailberita" class="flex gap-4 hover:opacity-80 transition">
                         <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
                              class="w-24 h-16 object-cover rounded-lg"
                              alt="">
@@ -162,9 +163,9 @@
                                 21 Oktober 2026
                             </p>
                         </section>
-                    </section>
+                    </a>
 
-                    <section class="flex gap-4">
+                    <a href="/detailberita" class="flex gap-4 hover:opacity-80 transition">
                         <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
                              class="w-24 h-16 object-cover rounded-lg"
                              alt="">
@@ -176,7 +177,7 @@
                                 21 Oktober 2026
                             </p>
                         </section>
-                    </section>
+                    </a>
 
                 </section>
             </section>
