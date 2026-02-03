@@ -215,13 +215,13 @@
                     </div>
 
                     <!-- Image Section -->
-<div class="overflow-hidden rounded-xl bg-white">
-    <img 
-        src="{{ asset('assets/partisipasi.png') }}" 
-        alt="Pertumbuhan Partisipasi Siswa"
-        class="w-full h-auto object-contain"
-    >
-</div>
+                    <div class="overflow-hidden rounded-xl bg-white">
+                        <img 
+                            src="{{ asset('assets/partisipasi.png') }}" 
+                            alt="Pertumbuhan Partisipasi Siswa"
+                            class="w-full h-auto object-contain"
+                        >
+                    </div>
 
 
 
