@@ -1,127 +1,77 @@
-<!-- Header Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-    <div class="container-fluid px-3 px-lg-4">
-      <a class="navbar-brand d-flex align-items-center gap-2 py-0" href="#">
-    <img src="{{ asset('assets/LOGO.png') }}" 
-         alt="Logo" 
-         class="img-fluid navbar-logo">
+<!-- Navbar -->
+<nav class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+        <div class="flex items-center justify-between h-16">
 
-    <div class="brand-text d-flex flex-column">
-        <span class="brand-title">SIEKSTRA</span>
-        <span class="brand-subtitle">Sistem Ekstrakurikuler</span>
-    </div>
-</a>
+            <!-- Brand -->
+            <a href="#" class="flex items-center gap-2">
+                <img src="{{ asset('assets/LOGO.png') }}"
+                     alt="Logo"
+                     class="h-9 w-auto">
+                <div class="flex flex-col leading-tight">
+                    <span class="font-bold text-[16px] lg:text-[18px] text-gray-900">
+                        SIEKSTRA
+                    </span>
+                    <span class="text-[11px] lg:text-[12px] text-gray-500">
+                        Sistem Ekstrakurikuler
+                    </span>
+                </div>
+            </a>
 
+            <!-- Hamburger (Mobile) -->
+            <button id="menuBtn"
+                class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
 
-        
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center text-lg-start">
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="/" style="color: #333;">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="#eskul" style="color: #333;">Ekskul</a></li>
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="/berita" style="color: #333;">Berita</a></li>
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="/prestasi" style="color: #333;">Prestasi</a></li>
-                <li class="nav-item"><a class="nav-link fw-500 px-2 px-lg-4" href="/tentang" style="color: #333;">Tentang</a></li>
-                <!-- Button Daftar di Mobile -->
-                <li class="nav-item d-lg-none mt-3"><a class="btn btn-primary text-white fw-500 px-4 w-100" href="#daftar">Daftar</a></li>
+            <!-- Menu Desktop -->
+            <ul class="hidden lg:flex items-center gap-8 font-medium">
+                <li><a href="/" class="text-gray-700 hover:text-blue-600 transition">Beranda</a></li>
+                <li><a href="#eskul" class="text-gray-700 hover:text-blue-600 transition">Ekskul</a></li>
+                <li><a href="/berita" class="text-gray-700 hover:text-blue-600 transition">Berita</a></li>
+                <li><a href="/prestasi" class="text-gray-700 hover:text-blue-600 transition">Prestasi</a></li>
+                <li><a href="/tentang" class="text-gray-700 hover:text-blue-600 transition">Tentang</a></li>
             </ul>
+
+            <!-- Button Desktop -->
+            <div class="hidden lg:block">
+                <a href="#daftar"
+                   class="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+                    Daftar
+                </a>
+            </div>
         </div>
-        
-        <!-- Button Daftar di Desktop -->
-        <div class="d-none d-lg-flex ms-5">
-            <a class="btn btn-primary text-white fw-500 px-3 px-lg-4" href="#daftar">Daftar</a>
+
+        <!-- Menu Mobile -->
+        <div id="mobileMenu" class="hidden lg:hidden pb-4">
+            <ul class="flex flex-col gap-3 text-center font-medium">
+                <li><a href="/" class="block py-2 text-gray-700 hover:text-blue-600">Beranda</a></li>
+                <li><a href="#eskul" class="block py-2 text-gray-700 hover:text-blue-600">Ekskul</a></li>
+                <li><a href="/berita" class="block py-2 text-gray-700 hover:text-blue-600">Berita</a></li>
+                <li><a href="/prestasi" class="block py-2 text-gray-700 hover:text-blue-600">Prestasi</a></li>
+                <li><a href="/tentang" class="block py-2 text-gray-700 hover:text-blue-600">Tentang</a></li>
+
+                <li class="mt-3">
+                    <a href="#daftar"
+                       class="block bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                        Daftar
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
 
-<style>
-    @media (max-width: 991px) {
-        .navbar-nav {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-        
-        .navbar-nav .nav-link {
-            padding: 0.5rem 0 !important;
-            font-size: 0.95rem;
-        }
-        
-        .btn {
-            font-size: 0.9rem;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        .navbar-brand img {
-            height: 35px !important;
-        }
-        
-        .btn {
-            padding: 0.5rem 0.8rem !important;
-            font-size: 0.85rem;
-        }
-        
-        .navbar-nav .nav-link {
-            font-size: 0.9rem;
-            padding: 0.4rem 0 !important;
-        }
-    }
-    
-    @media (min-width: 992px) {
-        .navbar-nav {
-            margin: 0 auto !important;
-        }
-        
-        .navbar-nav .nav-link:hover {
-            color: #0d6efd !important;
-        }
-    }
+<!-- Toggle Script -->
+<script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
 
-    .navbar-logo {
-    max-width: 60px;
-}
-
-.brand-title {
-    font-weight: 700;
-    font-size: 18px;
-    color: #1a1a1a;
-    line-height: 1.1;
-}
-
-.brand-subtitle {
-    font-size: 12px;
-    color: #6b7280;
-    line-height: 1.2;
-}
-
-/* MOBILE */
-@media (max-width: 576px) {
-    .brand-title {
-        font-size: 15px;
-    }
-
-    .brand-subtitle {
-        font-size: 10.5px;
-    }
-
-    .navbar-logo {
-        height: 34px;
-    }
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-
-}
-.hero-section,
-.eksul-feature,
-.news-section {
-    overflow-x: hidden;
-}
-
-
-</style>
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+</script>

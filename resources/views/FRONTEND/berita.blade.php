@@ -3,249 +3,180 @@
 @section('title', 'Berita SIEKSTRA')
 
 @section('content')
-  <style>
-  .hero {
-    background: url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1") center/cover no-repeat;
-    height: 280px;
-    position: relative;
-    color: #fff;
-  }
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.5);
-  }
-  .hero-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* News */
-  .news-card {
-    border: none;
-    box-shadow: none;
-  }
-  .news-card img {
-    height: 260px;
-    object-fit: cover;
-    border-radius: 18px;
-  }
-
-  /* Sidebar */
-  .sidebar {
-    border-left: 1px solid #e5e7eb;
-    padding-left: 24px;
-  }
-
-  /* Popular */
-  .popular img {
-    width: 64px;
-    height: 64px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  .btn-read {
-    border-radius: 20px;
-    font-size: 13px;
-    padding: 6px 14px;
-  }
-  .news-img-small {
-  height: 220px !important;
-}
-.news-img-small {
-  max-height: 220px;
-  object-fit: cover;
-}
-/* Default (mobile) */
-.news-image {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-/* Wrapper gambar */
-.news-image-wrapper {
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-/* Gambar */
-.news-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Desktop */
-@media (min-width: 992px) {
-  .news-image-wrapper {
-    max-width: 520px;     /* cegah terlalu lebar */
-    aspect-ratio: 16 / 10; /* rasio ideal seperti desain */
-  }
-}
-.news-content {
-  max-width: 520px;   /* SAMA dengan lebar foto */
-}
-
-@media (max-width: 991px) {
-  .news-content {
-    max-width: 100%;  /* Mobile full */
-  }
-}
-
-
-</style>
-
-</head>
-<body>
 
 <!-- ================= HERO ================= -->
-<section class="hero d-flex align-items-center">
-  <div class="container hero-content">
-    <h1 class="fw-bold">Berita & Informasi Terbaru</h1>
-    <p>Berita terkini seputar kegiatan, prestasi, dan agenda sekolah</p>
-  </div>
+<section class="relative h-[280px] overflow-hidden">
+    <!-- Background Image -->
+    <img
+        src="{{ asset('assets/hero-berita.jpg') }}"
+        alt="Hero Berita"
+        class="absolute inset-0 w-full h-full object-cover"
+    >
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 h-full flex items-center">
+    <div class="max-w-7xl mx-auto px-4 w-full text-white">
+        <h1 class="text-3xl font-bold mb-2">
+            Berita & Informasi Terbaru
+        </h1>
+        <p class="text-sm md:text-base text-gray-200 max-w-xl">
+            Berita terkini seputar kegiatan, prestasi, dan agenda sekolah
+        </p>
+    </div>
+</div>
 </section>
+
+
 
 <!-- ================= CONTENT ================= -->
-<section class="py-5">
-  <div class="container">
-    <div class="row g-4">
+<section class="py-10">
+    <div class="max-w-7xl mx-auto px-4">
 
-      <!-- ===== BERITA ===== -->
-      <section class="col-lg-8">
-        
-      <article class="news-article mb-5">
+        <!-- GRID UTAMA -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-  <div class="news-content">
+            <!-- ===== KONTEN KIRI ===== -->
+            <div class="lg:col-span-7 space-y-12">
+                <!-- CARD 1 -->
+                <article>
+                    <img
+    src="{{ asset('assets/berita.jpeg') }}"
+    alt="Berita"
+    class="
+        w-full
+        h-[220px]        <!-- MOBILE -->
+        sm:h-[260px]
+        md:h-[320px]
+        lg:h-[380px]    <!-- DESKTOP -->
+        object-cover
+        object-center
+        rounded-2xl
+    "
+>
 
-    <div class="news-image-wrapper mb-3">
-      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1"
-           class="news-image">
+
+                    <div class="flex items-center text-sm text-gray-500 mb-2 gap-2">
+                        📅 <span>21 Oktober 2026</span>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mb-2">
+                        Viral terbaru di Indonesia bagian tengah ada seorang anomali
+                    </h2>
+
+                    <p class="text-gray-600 mb-4">
+                        Viral terbaru di Indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
+                    </p>
+
+                    <a href="/detailberita"
+                       class="inline-block px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition">
+                        Baca Selengkapnya
+                    </a>
+                </article>
+
+                <!-- CARD 2 (PASTI DI BAWAH) -->
+                <article>
+                    <img
+    src="{{ asset('assets/berita.jpeg') }}"
+    alt="Berita"
+    class="
+        w-full
+        h-[220px]        <!-- MOBILE -->
+        sm:h-[260px]
+        md:h-[320px]
+        lg:h-[380px]    <!-- DESKTOP -->
+        object-cover
+        object-center
+        rounded-2xl
+    "
+>
+
+
+                    <div class="flex items-center text-sm text-gray-500 mb-2 gap-2">
+                        📅 <span>18 Oktober 2026</span>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mb-2">
+                        Prestasi membanggakan siswa sekolah tingkat nasional
+                    </h2>
+
+                    <p class="text-gray-600 mb-4">
+                        Siswa sekolah berhasil meraih prestasi nasional.
+                    </p>
+
+                    <a href="/detailberita"
+                       class="inline-block px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition">
+                        Baca Selengkapnya
+                    </a>
+                </article>
+            </div>
+
+             <!-- ===== SIDEBAR ===== -->
+        <aside class="lg:col-span-4 relative lg:pl-6 space-y-8">
+
+            <!-- Garis Pemisah -->
+            <div class="hidden lg:block absolute left-0 top-0 h-full w-px bg-gray-200"></div>
+
+            <!-- Search -->
+            <div>
+                <div class="flex items-center border border-gray-300 rounded-xl px-4 py-3">
+                    <span class="text-gray-400 mr-2">🔍</span>
+                    <input type="text"
+                           placeholder="Cari"
+                           class="w-full text-sm outline-none">
+                </div>
+            </div>
+
+            <!-- Kategori -->
+            <div>
+                <h6 class="text-sm font-bold mb-3">Kategori</h6>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi bla bla</span>
+                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi</span>
+                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi anjay</span>
+                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi itu</span>
+                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi ini</span>
+                </div>
+            </div>
+
+            <!-- Berita Populer -->
+            <div>
+                <h6 class="text-sm font-bold mb-4">Berita Populer</h6>
+
+                <div class="space-y-4">
+                    <div class="flex gap-3">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b"
+                             class="w-16 h-16 rounded-xl object-cover">
+                        <div>
+                            <p class="text-sm font-semibold leading-snug">
+                                Viral terbaru di indonesia bagian tengah
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                Viral terbaru di indonesia bagian tengah
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d"
+                             class="w-16 h-16 rounded-xl object-cover">
+                        <div>
+                            <p class="text-sm font-semibold leading-snug">
+                                Viral terbaru di indonesia bagian tengah
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                Viral terbaru di indonesia bagian tengah
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+        </div>
     </div>
-
-    <small class="text-muted d-flex align-items-center gap-2">
-      <i class="bi bi-calendar"></i> 21 Oktober 2026
-    </small>
-
-    <h4 class="fw-bold mt-2">
-      Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-    </h4>
-
-    <p class="text-muted">
-      Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-    </p>
-
-    <a href="/detailberita" class="btn btn-outline-primary btn-read">
-      Baca Selengkapnya
-    </a>
-
-  </div>
-
-</article>
-
-
-
-     <article class="news-article mb-5">
-
-  <div class="news-content">
-
-    <div class="news-image-wrapper mb-3">
-      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1"
-           class="news-image">
-    </div>
-
-    <small class="text-muted d-flex align-items-center gap-2">
-      <i class="bi bi-calendar"></i> 21 Oktober 2026
-    </small>
-
-    <h4 class="fw-bold mt-2">
-      Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-    </h4>
-
-    <p class="text-muted">
-      Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-    </p>
-
-    <a href="/detailberita" class="btn btn-outline-primary btn-read">
-      Baca Selengkapnya
-    </a>
-
-  </div>
-
-</article>
-
-
-
-
-      </section>
-
-      <!-- ===== SIDEBAR ===== -->
-      <aside class="col-lg-4 sidebar">
-
-
-        <!-- Search -->
-        <section class="mb-4">
-  <div class="input-group">
-    <span class="input-group-text bg-white">
-      🔍
-    </span>
-    <input type="text" class="form-control border-start-0" placeholder="Cari">
-  </div>
 </section>
-
-
-        <!-- Categories -->
-        <section class="mb-4">
-  <h6 class="fw-bold">Kategori</h6>
-  <div class="d-flex flex-wrap gap-2 mt-2">
-    <span class="badge rounded-pill border text-dark">Inovasi bla bla bla</span>
-    <span class="badge rounded-pill border text-dark">Inovasi</span>
-    <span class="badge rounded-pill border text-dark">Inovasi anjay</span>
-    <span class="badge rounded-pill border text-dark">Inovasi itu</span>
-    <span class="badge rounded-pill border text-dark">Inovasi ini</span>
-  </div>
-</section>
-
-
-        <!-- Berita Populer -->
-        <section>
-  <h6 class="fw-bold mb-3">Berita Populer</h6>
-
-  <div class="d-flex gap-3 mb-3 popular">
-    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b">
-    <div>
-      <p class="mb-1 small fw-semibold">
-        Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-      </p>
-      <small class="text-muted">
-        Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-      </small>
-    </div>
-  </div>
-
-  <div class="d-flex gap-3 mb-3 popular">
-    <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d">
-    <div>
-      <p class="mb-1 small fw-semibold">
-        Viral terbaru di indonesia bagian tengah
-      </p>
-      <small class="text-muted">
-        Viral terbaru di indonesia bagian tengah
-      </small>
-    </div>
-  </div>
-</section>
-
-      </aside>
-
-    </div>
-  </div>
-</section>
-
-
-
 @endsection

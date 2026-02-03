@@ -3,41 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Sistem Manajemen Ekstrakurikuler')</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <title>@yield('title', 'Sistem Manajemen Ekstrakurikuler')</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config (optional) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    container: {
+                        center: true,
+                        padding: '1rem',
+                        screens: {
+                            lg: '1140px',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     @yield('styles')
 </head>
 
-<style>
-    
-html, body {
-    overflow-x: hidden;
-}
+<body class="antialiased text-gray-800 overflow-x-hidden">
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-</style>
-
-<body>
-
+    {{-- Navbar --}}
     @include('FRONTEND.layouts.navbar')
 
-    <main>
+    <main class="min-h-screen">
         @yield('content')
     </main>
 
+    {{-- Footer --}}
     @include('FRONTEND.layouts.footer')
-
-    <!-- Bootstrap JS (WAJIB untuk navbar) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     @yield('scripts')
 </body>

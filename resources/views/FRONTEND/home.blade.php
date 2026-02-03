@@ -4,604 +4,417 @@
 
 @section('content')
 
+<!-- HERO -->
+<section class="py-20 bg-gradient-to-br from-gray-100 to-white">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 items-center gap-12">
 
-<style>
-    .eksul-feature {
-    background-color: #f9f9f9;
-}
+        <div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Sistem Manajemen Ekstrakurikuler
+            </h1>
+            <p class="text-lg text-gray-500 mb-8">
+                Solusi digital untuk pengelolaan eskul yang lebih rapi dan efisien.
+            </p>
 
-.feature-box {
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
+            <!-- SEARCH -->
+            <form class="relative max-w-md">
+                <input
+                    type="text"
+                    placeholder="Cari Ekstrakurikuler..."
+                    class="w-full px-5 py-4 rounded-full border border-gray-300 focus:ring-2 focus:ring-blue-400 outline-none"
+                >
+                <button class="absolute right-2 top-1/2 -translate-y-1/2 text-blue-500 p-3 rounded-full hover:bg-blue-100">
+                    🔍
+                </button>
+            </form>
+        </div>
 
-.vertical-line {
-    width: 1px;
-    height: 80px;
-    background-color: #ddd;
-}
-
-.feature-icon {
-    font-size: 42px;
-    color: #000;
-}
-
-.feature-item p {
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* =========================
-   RESPONSIVE SETTINGS
-========================= */
-
-/* Tablet & Mobile */
-@media (max-width: 991px) {
-
-    /* Hero */
-    .hero-section h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-section .lead {
-        font-size: 1rem;
-    }
-
-    .hero-section .search-box {
-        flex-direction: column;
-    }
-
-    .hero-section .search-box input,
-    .hero-section .search-box button {
-        width: 100%;
-    }
-
-    /* Feature box */
-    .feature-box {
-        padding: 2rem !important;
-    }
-
-    .feature-box h2 {
-        font-size: 1.6rem;
-    }
-
-    .feature-box .row.align-items-center {
-        text-align: center;
-    }
-
-    .vertical-line {
-        display: none;
-    }
-
-    /* Features */
-    .feature-item {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .feature-icon {
-        font-size: 36px;
-    }
-}
-
-/* Mobile kecil */
-@media (max-width: 576px) {
-
-    h2 {
-        font-size: 1.4rem;
-    }
-
-    p {
-        font-size: 0.95rem;
-    }
-
-    .statistics-section h3 {
-        font-size: 2.5rem;
-    }
-
-    .cta-section h2 {
-        font-size: 1.6rem;
-    }
-
-    .cta-section .lead {
-        font-size: 1rem;
-    }
-
-    .cta-section .btn {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-
-/* Search Box */
-.search-wrapper {
-    max-width: 480px;
-}
-
-.search-form {
-    position: relative;
-}
-
-.search-input {
-    width: 100%;
-    padding: 14px 52px 14px 20px;
-    border-radius: 50px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-.search-input:focus {
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
-}
-
-.search-btn {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    color: #4a90e2;
-    font-size: 20px;
-    padding: 8px 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.search-btn:hover {
-    background-color: rgba(74, 144, 226, 0.1);
-}
-
-@media (max-width: 576px) {
-    .search-wrapper {
-        max-width: 100%;
-    }
-}
-
-.cta-box {
-    background: linear-gradient(135deg, #3b5f8f, #2c4f83);
-    border-radius: 1.25rem;
-    padding: 3rem 2rem;
-}
-
-.cta-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    opacity: 0.85;
-}
-
-.cta-text {
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.7;
-}
-
-/* MOBILE TWEAK */
-@media (max-width: 576px) {
-    .cta-box {
-        padding: 2rem 1.5rem;
-    }
-}
-
-</style>
-
-<!-- Hero Section -->
-<section class="hero-section py-5" style="background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <h1 class="display-4 fw-bold mb-3" style="color: #1a1a1a;">Sistem Manajemen Ekstrakurikuler</h1>
-                <p class="lead text-muted mb-4">Solusi digital untuk pengelolaan eskul yang lebih rapi dan efisien.</p>
-               <div class="search-wrapper mb-5">
-                <form class="search-form">
-                    <input 
-                        type="text" 
-                        class="search-input" 
-                        placeholder="Cari Ekstrakurikuler..."
-                    >
-                    <button type="submit" class="search-btn">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
-            </div>
-            </div>
-            <img src="{{ asset('assets/hero.png') }}" 
-             alt="Hero Image"
-            class="img-fluid"
-             style="max-width: 500px; width: 100%;">
+        <div class="flex justify-center">
+            <img src="{{ asset('assets/hero.png') }}" class="max-w-lg w-full">
         </div>
     </div>
 </section>
 
-<!-- Features Section -->
-<section class="eksul-feature py-5">
-    <div class="container">
-        <div class="feature-box p-5">
-            <!-- Header -->
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6">
-                    <p class="text-primary fw-semibold mb-2">SISTEM EKSTRAKURIKULER</p>
-                    <h2 class="fw-bold">
+<!-- FEATURE -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="bg-white rounded-3xl shadow-xl p-12">
+
+            <!-- HEADER -->
+            <div class="grid md:grid-cols-3 gap-10 items-center mb-16">
+                <div>
+                    <p class="text-blue-500 font-semibold mb-2">
+                        SISTEM EKSTRAKURIKULER
+                    </p>
+                    <h2 class="text-2xl font-bold leading-snug">
                         Pengelolaan Ekstrakurikuler <br>
                         yang Lebih Terstruktur
                     </h2>
                 </div>
-                <div class="col-md-1 d-none d-md-flex justify-content-center">
-                    <div class="vertical-line"></div>
+
+                <div class="hidden md:flex justify-center">
+                    <div class="w-px h-20 bg-gray-300"></div>
                 </div>
-                <div class="col-md-5">
-                    <p class="text-muted mb-0">
-                        Sistem berbasis web yang membantu sekolah mengelola
-                        kegiatan ekstrakurikuler secara efektif.
+
+                <p class="text-gray-500">
+                    Sistem berbasis web yang membantu sekolah mengelola
+                    kegiatan ekstrakurikuler secara efektif.
+                </p>
+            </div>
+
+            <!-- ITEMS -->
+            <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
+
+                <div>
+                    <div class="text-4xl mb-4">👤</div>
+                    <h5 class="font-bold mb-2">Pendaftaran Mudah</h5>
+                    <p class="text-gray-500">
+                        Siswa dapat mendaftar ekstrakurikuler secara online,
+                        dengan status pendaftaran yang jelas dan transparan.
                     </p>
                 </div>
+
+                <div>
+                    <div class="text-4xl mb-4">📅</div>
+                    <h5 class="font-bold mb-2">Jadwal Terorganisir</h5>
+                    <p class="text-gray-500">
+                        Kelola jadwal latihan setiap ekstrakurikuler dengan rapi
+                        dan hindari bentrok waktu antar kegiatan.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="text-4xl mb-4">🏆</div>
+                    <h5 class="font-bold mb-2">Kegiatan & Prestasi</h5>
+                    <p class="text-gray-500">
+                        Catat kegiatan dan prestasi ekstrakurikuler sebagai
+                        dokumentasi sekolah.
+                    </p>
+                </div>
+
             </div>
 
-            <!-- Features -->
-           <div class="row text-start text-md-start text-center">
-                <div class="col-md-4">
-                    <div class="feature-item">
-                        <i class="bi bi-person-plus feature-icon"></i>
-                        <h5 class="fw-bold mt-3">Pendaftaran Mudah</h5>
-                        <p class="text-muted">
-                            Siswa dapat mendaftar ekstrakurikuler secara online,
-                            dengan status pendaftaran yang jelas dan transparan.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="feature-item">
-                        <i class="bi bi-calendar-check feature-icon"></i>
-                        <h5 class="fw-bold mt-3">Jadwal Terorganisir</h5>
-                        <p class="text-muted">
-                            Kelola jadwal latihan setiap ekstrakurikuler dengan rapi
-                            dan hindari bentrok waktu antar kegiatan.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="feature-item">
-                        <i class="bi bi-trophy feature-icon"></i>
-                        <h5 class="fw-bold mt-3">Kegiatan & Prestasi</h5>
-                        <p class="text-muted">
-                            Catat kegiatan dan prestasi ekstrakurikuler sebagai
-                            dokumentasi sekolah.
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
 
+<!-- BENEFITS -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
 
-<!-- Benefits Section -->
-<section class="benefits-section py-5" style="background-color: #ffffff;">
-    <div class="container">
-
-        <!-- Header -->
-        <div class="text-center mb-5">
-            <p class="text-primary fw-bold mb-2">KEUNGGULAN SISTEM</p>
-            <h2 class="fw-bold">Mengapa Sistem Ini Dibutuhkan Sekolah</h2>
+        <div class="text-center mb-16">
+            <p class="text-blue-500 font-bold mb-2">KEUNGGULAN SISTEM</p>
+            <h2 class="text-3xl font-bold">
+                Mengapa Sistem Ini Dibutuhkan Sekolah
+            </h2>
         </div>
 
-        <div class="row g-4">
+        <div class="grid md:grid-cols-2 gap-10">
 
-            <!-- Card 10+ Ekskul -->
-            <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm rounded-4">
-                    <div class="card-body p-5 d-flex flex-column justify-content-center">
-                        <h1 class="fw-bold mb-3" style="font-size: 3.5rem; color: #4a90e2;">10+</h1>
-                        <h5 class="fw-semibold mb-0">
-                            Kegiatan Ekstrakurikuler<br>
-                            Terkelola
-                        </h5>
+            <!-- Card 1 -->
+            <div class="bg-white rounded-3xl shadow p-12">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-blue-100 p-4 rounded-2xl">
+                        <!-- Academic Cap Icon -->
+                        <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 14l9-5-9-5-9 5 9 5z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z" />
+                        </svg>
                     </div>
+                </div>
+
+                <h1 class="text-6xl font-bold text-blue-500 mb-4">10+</h1>
+                <h5 class="font-semibold text-lg">
+                    Kegiatan Ekstrakurikuler<br>
+                    Terkelola
+                </h5>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-3xl shadow p-12">
+                <h5 class="font-bold mb-8 text-lg">
+                    Akses & Pengelolaan Real-Time
+                </h5>
+
+                <div class="flex items-center justify-between text-blue-500">
+                    <!-- Device -->
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.75 17h4.5m-7.5 3h10.5a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0017.25 4.5H6.75A2.25 2.25 0 004.5 6.75v11.25A2.25 2.25 0 006.75 20z" />
+                    </svg>
+
+                    <!-- Arrow -->
+                    <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                    </svg>
+
+                    <!-- Cloud -->
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 15a4 4 0 014-4h1a5 5 0 019.584-1.312A4 4 0 1117 19H7a4 4 0 01-4-4z" />
+                    </svg>
                 </div>
             </div>
 
-            <!-- Card Realtime -->
-            <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm rounded-4">
-                    <div class="card-body p-5">
-                        <h5 class="fw-bold mb-4">Akses & Pengelolaan Real-Time</h5>
+            <!-- Card 3 Full Width -->
+            <div class="bg-white rounded-3xl shadow p-12 md:col-span-2">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
 
-                        <div class="d-flex align-items-center justify-content-between text-muted">
-                            <i class="bi bi-laptop fs-1"></i>
-                            <i class="bi bi-arrow-left-right fs-2"></i>
-                            <i class="bi bi-cloud fs-1"></i>
+                    <!-- Text -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <!-- Megaphone Icon -->
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11 5l7 7-7 7V5zM4 12h7" />
+                            </svg>
+                            <h5 class="font-bold text-lg">
+                                Informasi Selalu Terbaru
+                            </h5>
                         </div>
+
+                        <p class="text-gray-600 mb-6">
+                            Setiap perubahan jadwal atau kegiatan langsung diketahui
+                            oleh siswa dan pembina secara real-time.
+                        </p>
+
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Update otomatis
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Akses cepat
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                Informasi akurat
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </div>
 
-        <div class="col-12">
-    <div class="card border-0 shadow-sm rounded-4 h-100">
-        <div class="card-body p-5">
-
-            <div class="row align-items-center">
-
-                <!-- LEFT CONTENT -->
-                <div class="col-lg-5 col-12 mb-4 mb-lg-0">
-                    <div class="d-flex align-items-start gap-3 mb-3">
-                        <i class="bi bi-megaphone fs-2 text-primary"></i>
-                        <h5 class="fw-bold mb-0">Informasi Selalu Terbaru</h5>
-                    </div>
-
-                    <p class="text-muted mb-3">
-                        Setiap perubahan jadwal atau kegiatan dapat langsung
-                        diketahui oleh siswa dan admin secara real-time.
-                    </p>
-
-                    <ul class="text-muted mb-4">
-                        <li>Update otomatis</li>
-                        <li>Akses cepat</li>
-                        <li>Informasi akurat</li>
-                    </ul>
-
-                   
-                </div>
-
-                <!-- RIGHT IMAGE / CHART -->
-                <div class="col-lg-7 col-12 text-center">
-                    <img 
-                        src="/assets/partisipasi.png"
-                        alt="Pertumbuhan Partisipasi Siswa"
-                        class="img-fluid rounded-4"
-                    >
-                </div>
-
-            </div>
-
-        </div>
-    </div>
+                    <!-- Image Section -->
+<div class="overflow-hidden rounded-xl bg-white">
+    <img 
+        src="{{ asset('assets/partisipasi.png') }}" 
+        alt="Pertumbuhan Partisipasi Siswa"
+        class="w-full h-auto object-contain"
+    >
 </div>
 
 
-        </div>
-    </div>
-</div>
 
+                </div>
+            </div>
 
         </div>
     </div>
 </section>
-
 
 
 
 <!-- ALUR SISTEM -->
-<section class="alur-sistem py-5" style="background-color:#355C8C;">
-    <div class="container text-white">
+<section class="py-20 bg-[#355C8C] text-white">
+    <div class="max-w-7xl mx-auto px-4">
 
-        <!-- TOP CONTENT -->
-        <div class="row align-items-center mb-5">
-            <!-- LEFT TEXT -->
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <p class="fw-semibold text-uppercase mb-2" style="letter-spacing:1px;">
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+                <p class="uppercase font-semibold mb-2 tracking-wider">
                     ALUR SISTEM
                 </p>
-
-                <h2 class="fw-bold mb-3">
+                <h2 class="text-3xl font-bold mb-4">
                     Kelola Kegiatan Ekstrakurikuler<br>
                     dengan Lebih Mudah
                 </h2>
-
                 <p class="opacity-75">
-                    Proses sederhana untuk mengatur kegiatan
-                    ekstrakurikuler secara digital dan terstruktur.
+                    Proses sederhana untuk mengatur kegiatan secara digital.
                 </p>
             </div>
 
-            <!-- RIGHT IMAGE -->
-            <div class="col-lg-6 text-lg-end text-center">
-                <img 
-                    src="/assets/alur-sistem.png"
-                    alt="Alur Sistem"
-                    class="img-fluid rounded-4"
-                    style="max-height:260px;"
-                >
+            <div class="flex justify-center lg:justify-end">
+                <img src="/assets/alur-sistem.png" class="rounded-2xl max-h-64">
             </div>
         </div>
 
-       <!-- STEP CARDS -->
-<div class="row g-4 text-center">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
 
-    <!-- STEP 1 -->
-    <div class="col-md-4">
-        <div class="card h-100 border-0 rounded-4 shadow-sm p-4"
-             style="background-color:#426A9D;">
-            <h1 class="fw-bold mb-2"
-                style="font-size:3.5rem; color:rgba(255,255,255,0.35);">
-                1
-            </h1>
-            <h5 class="fw-semibold text-white mb-2">
-                Informasi Terpusat
-            </h5>
-            <p class="small mb-0"
-               style="color:rgba(255,255,255,0.75);">
-                Seluruh informasi kegiatan ekstrakurikuler
-                tersedia dalam satu sistem yang mudah diakses.
-            </p>
+            <div class="bg-[#426A9D] rounded-3xl p-8 shadow">
+                <h1 class="text-6xl font-bold opacity-30 mb-2">1</h1>
+                <h5 class="font-semibold mb-2">Informasi Terpusat</h5>
+                <p class="text-sm opacity-75">
+                    Seluruh informasi tersedia dalam satu sistem.
+                </p>
+            </div>
+
+            <div class="bg-[#426A9D] rounded-3xl p-8 shadow">
+                <h1 class="text-6xl font-bold opacity-30 mb-2">2</h1>
+                <h5 class="font-semibold mb-2">Pembaruan Otomatis</h5>
+                <p class="text-sm opacity-75">
+                    Perubahan jadwal diperbarui secara real-time.
+                </p>
+            </div>
+
+            <div class="bg-[#426A9D] rounded-3xl p-8 shadow">
+                <h1 class="text-6xl font-bold opacity-30 mb-2">3</h1>
+                <h5 class="font-semibold mb-2">Akses Cepat</h5>
+                <p class="text-sm opacity-75">
+                    Informasi bisa diakses kapan saja.
+                </p>
+            </div>
+
         </div>
-    </div>
-
-    <!-- STEP 2 -->
-    <div class="col-md-4">
-        <div class="card h-100 border-0 rounded-4 shadow-sm p-4"
-             style="background-color:#426A9D;">
-            <h1 class="fw-bold mb-2"
-                style="font-size:3.5rem; color:rgba(255,255,255,0.35);">
-                2
-            </h1>
-            <h5 class="fw-semibold text-white mb-2">
-                Pembaruan Otomatis
-            </h5>
-            <p class="small mb-0"
-               style="color:rgba(255,255,255,0.75);">
-                Setiap perubahan jadwal atau kegiatan langsung
-                diperbarui di sistem secara real-time.
-            </p>
-        </div>
-    </div>
-
-    <!-- STEP 3 -->
-    <div class="col-md-4">
-        <div class="card h-100 border-0 rounded-4 shadow-sm p-4"
-             style="background-color:#426A9D;">
-            <h1 class="fw-bold mb-2"
-                style="font-size:3.5rem; color:rgba(255,255,255,0.35);">
-                3
-            </h1>
-            <h5 class="fw-semibold text-white mb-2">
-                Akses Cepat Pengguna
-            </h5>
-            <p class="small mb-0"
-               style="color:rgba(255,255,255,0.75);">
-                Siswa dan pembina dapat melihat informasi
-                terbaru kapan saja dan di mana saja.
-            </p>
-        </div>
-    </div>
-
-</div>
-
     </div>
 </section>
 
-
 <!-- DAMPAK SISTEM -->
-<section class="statistics-section py-5" style="background-color:#ffffff;">
-    <div class="container">
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
 
         <!-- HEADER -->
-        <div class="text-center mb-5">
-            <p class="text-primary fw-semibold mb-2" style="letter-spacing:1px;">
+        <div class="text-center mb-16">
+            <p class="text-blue-500 font-semibold tracking-widest mb-2">
                 DAMPAK SISTEM
             </p>
-            <h2 class="fw-bold mb-3">
-                Mendukung Kegiatan Ekstrakurikuler<br>
+            <h2 class="text-3xl font-bold mb-4">
+                Mendukung Kegiatan Ekstrakurikuler <br class="hidden sm:block">
                 Sekolah
             </h2>
-            <p class="text-muted mx-auto" style="max-width:640px;">
-                Sistem ini membantu sekolah mengelola kegiatan ekstrakurikuler
-                dengan lebih terstruktur dan efisien.
+            <p class="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                Sistem ini membantu sekolah mengelola kegiatan
+                ekstrakurikuler dengan lebih terstruktur dan efisien.
             </p>
         </div>
 
-        <!-- STAT NUMBERS -->
-        <div class="row text-center mb-5">
+        <!-- STATISTIK -->
+        <div class="grid md:grid-cols-3 gap-10 text-center mb-16">
 
-            <div class="col-md-4 mb-4 mb-md-0">
-                <h1 class="fw-bold mb-1" style="color:#7a7a7a; font-size:3rem;">
+            <div>
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-400 mb-2">
                     800+
                 </h1>
-                <p class="fw-semibold mb-0">Siswa Terdaftar</p>
+                <p class="font-semibold text-gray-800">
+                    Siswa Terdaftar
+                </p>
             </div>
 
-            <div class="col-md-4 mb-4 mb-md-0">
-                <h1 class="fw-bold mb-1" style="color:#7a7a7a; font-size:3rem;">
+            <div>
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-400 mb-2">
                     12+
                 </h1>
-                <p class="fw-semibold mb-0">Ekstrakurikuler Aktif</p>
+                <p class="font-semibold text-gray-800">
+                    Ekstrakurikuler Aktif
+                </p>
             </div>
 
-            <div class="col-md-4">
-                <h1 class="fw-bold mb-1" style="color:#7a7a7a; font-size:3rem;">
+            <div>
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-400 mb-2">
                     90%
                 </h1>
-                <p class="fw-semibold mb-0">Tingkat Partisipasi</p>
+                <p class="font-semibold text-gray-800">
+                    Tingkat Partisipasi
+                </p>
             </div>
 
         </div>
 
-        <!-- INFO CARDS -->
-        <div class="row g-4">
+        <!-- CARD INFO -->
+        <div class="grid md:grid-cols-2 gap-8">
 
             <!-- SISWA -->
-            <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm rounded-4 p-4"
-                     style="background-color:#f8fbff;">
-                    <h5 class="fw-bold mb-3">Siswa</h5>
-                    <p class="text-muted mb-4">
-                        Akses informasi kegiatan, jadwal latihan, dan
-                        pengumuman ekstrakurikuler secara cepat dan mudah.
-                    </p>
-                    <a href="#" class="text-primary fw-semibold text-decoration-none">
-                        Lihat selengkapnya →
-                    </a>
-                </div>
+            <div class="bg-[#f8fbff] rounded-2xl shadow p-8">
+                <h5 class="font-bold mb-4 text-gray-900">
+                    Siswa
+                </h5>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    Akses informasi kegiatan, jadwal latihan,
+                    dan pengumuman ekstrakurikuler secara cepat
+                    dan mudah.
+                </p>
+                <a href="#" class="text-blue-600 font-semibold hover:underline">
+                    Lihat selengkapnya →
+                </a>
             </div>
 
             <!-- PEMBINA -->
-            <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm rounded-4 p-4"
-                     style="background-color:#3f6596; color:white;">
-                    <h5 class="fw-bold mb-3">Pembina</h5>
-                    <p class="opacity-75 mb-4">
-                        Kelola jadwal kegiatan dan pantau partisipasi siswa
-                        dalam satu sistem terintegrasi.
+            <div class="bg-[#3f6596] rounded-2xl shadow p-8 text-white">
+                <h5 class="font-bold mb-4">
+                    Pembina
+                </h5>
+                <p class="opacity-80 leading-relaxed mb-6">
+                    Kelola jadwal kegiatan dan pantau partisipasi
+                    siswa dalam satu sistem terintegrasi.
+                </p>
+                <a href="#" class="font-semibold hover:underline">
+                    Lihat selengkapnya →
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CTA -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <div
+            class="rounded-3xl p-14 text-white shadow-xl"
+            style="background-color:#365A8C;"
+        >
+
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="uppercase text-sm tracking-widest mb-2">
+                        Coba Sekarang
                     </p>
-                    <a href="#" class="text-white fw-semibold text-decoration-none">
-                        Lihat selengkapnya →
+                    <h2 class="text-3xl font-bold mb-4">
+                        Gunakan Sistem Manajemen<br>
+                        Ekstrakurikuler Sekolah
+                    </h2>
+                    <p class="opacity-90">
+                        Sistem ini dirancang untuk membantu sekolah
+                        mengelola kegiatan secara efektif.
+                    </p>
+                </div>
+
+                <div class="flex gap-4 lg:justify-end flex-wrap">
+                    <a href="#"
+                       class="bg-white text-[#365A8C] font-semibold px-6 py-3 rounded-full">
+                        Daftar Sekarang
+                    </a>
+                    <a href="#"
+                       class="border border-white px-6 py-3 rounded-full">
+                        Pelajari Lebih Lanjut
                     </a>
                 </div>
             </div>
 
         </div>
-
     </div>
 </section>
-
-
-<section class="py-5">
-    <div class="container">
-        <div class="cta-box text-white shadow-lg">
-            <div class="row align-items-center g-4">
-
-                <!-- LEFT CONTENT -->
-                <div class="col-lg-7">
-                    <p class="cta-eyebrow mb-2">
-                        Coba Sekarang
-                    </p>
-
-                    <h2 class="fw-bold mb-3">
-                        Gunakan Sistem Manajemen <br class="d-none d-sm-block">
-                        Ekstrakurikuler Sekolah
-                    </h2>
-
-                    <p class="cta-text mb-0">
-                        Sistem ini dirancang untuk membantu sekolah dalam
-                        mengelola kegiatan ekstrakurikuler secara lebih efektif
-                        dan terorganisir.
-                    </p>
-                </div>
-
-                <!-- RIGHT ACTION -->
-                <div class="col-lg-5 text-lg-end">
-                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-lg-end">
-                        <a href="#" class="btn btn-light fw-semibold px-4 py-2 rounded-pill">
-                            Daftar Sekarang
-                        </a>
-
-                        <a href="#" class="btn btn-outline-light fw-semibold px-4 py-2 rounded-pill">
-                            Pelajari Lebih Lanjut
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
 
 
 @endsection
+
