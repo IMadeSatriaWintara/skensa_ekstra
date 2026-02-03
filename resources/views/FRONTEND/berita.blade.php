@@ -60,6 +60,7 @@
 
                     <div class="flex items-center text-sm text-gray-500 mb-2 gap-2">
                         📅 <span>21 Oktober 2026</span>
+                        <span>Kategori : <b>Riset dan Inovasi</b></span>
                     </div>
 
                     <h2 class="text-2xl font-bold mb-2">
@@ -96,6 +97,7 @@
 
                     <div class="flex items-center text-sm text-gray-500 mb-2 gap-2">
                         📅 <span>18 Oktober 2026</span>
+                        <span>Kategori : <b>Riset dan Inovasi</b></span>
                     </div>
 
                     <h2 class="text-2xl font-bold mb-2">
@@ -142,37 +144,42 @@
             </div>
 
             <!-- Berita Populer -->
-            <div>
-                <h6 class="text-sm font-bold mb-4">Berita Populer</h6>
+            <section>
+                <h3 class="font-bold text-lg mb-4">Berita Populer</h3>
 
-                <div class="space-y-4">
-                    <div class="flex gap-3">
-                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b"
-                             class="w-16 h-16 rounded-xl object-cover">
-                        <div>
-                            <p class="text-sm font-semibold leading-snug">
-                                Viral terbaru di indonesia bagian tengah
-                            </p>
-                            <p class="text-xs text-gray-500">
-                                Viral terbaru di indonesia bagian tengah
-                            </p>
-                        </div>
-                    </div>
+                <section class="space-y-4">
 
-                    <div class="flex gap-3">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d"
-                             class="w-16 h-16 rounded-xl object-cover">
-                        <div>
-                            <p class="text-sm font-semibold leading-snug">
-                                Viral terbaru di indonesia bagian tengah
+                    <!-- Item -->
+                    <section class="flex gap-4">
+                        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
+                             class="w-24 h-16 object-cover rounded-lg"
+                             alt="">
+                        <section>
+                            <h4 class="text-sm font-semibold leading-snug">
+                                Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
+                            </h4>
+                            <p class="text-xs text-gray-500 mt-1">
+                                21 Oktober 2026
                             </p>
-                            <p class="text-xs text-gray-500">
-                                Viral terbaru di indonesia bagian tengah
+                        </section>
+                    </section>
+
+                    <section class="flex gap-4">
+                        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
+                             class="w-24 h-16 object-cover rounded-lg"
+                             alt="">
+                        <section>
+                            <h4 class="text-sm font-semibold leading-snug">
+                                Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
+                            </h4>
+                            <p class="text-xs text-gray-500 mt-1">
+                                21 Oktober 2026
                             </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </section>
+                    </section>
+
+                </section>
+            </section>
 
         </aside>
 
