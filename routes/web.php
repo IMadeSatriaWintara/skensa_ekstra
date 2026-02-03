@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,16 @@ Route::get('/login', function () {
     return view('BACKEND.login');
 });
 
+// SUPER ADMIN //
 Route::get('/backoffice', [AdminController::class, 'backoffice'])->name('backoffice');
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
+// ACCOUNT //
+// ADMIN EKSTRA //
+Route::get('/akun', [AccountController::class, 'akun'])->name('akun');
+Route::get('/addakun', [AccountController::class, 'addakun'])->name('addakun');
+Route::post('/insertadmin', [AccountController::class, 'insertadmin'])->name('insertadmin');
+Route::get('/tampilkanakun/{id}', [AccountController::class, 'tampilkanakun'])->name('tampilkanakun');
+Route::post('/updateakun/{id}', [AccountController::class, 'updateakun'])->name('updateakun');
+
+// SUPER ADMIN //
