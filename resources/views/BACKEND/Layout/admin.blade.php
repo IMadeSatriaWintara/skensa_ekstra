@@ -61,7 +61,7 @@
     <!-- Brand Logo -->
     <a href="" class="brand-link">
       <img src="{{ asset('assets/LOGO.png') }}" alt="SKEXTRA " class="brand-image img-circle elevation-3" style="opacity: .5">
-      <span class="brand-text font-weight-light">SKEXTRA</span>
+      <span class="brand-text font-weight-light">SIEKSTRA</span>
     </a>
 
     <!-- Sidebar -->
@@ -200,13 +200,30 @@
               </li>
             </ul>
           </li>
-
-          <!-- Accounts -->
+          
+          <!-- Extra -->
           <li class="nav-item">
-            <a href="/accounts" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
-              <p>Accounts</p>
+              <p>
+                Account
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/akun" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Admin Ekstra</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/contact" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>SuperAdmin</p>
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>

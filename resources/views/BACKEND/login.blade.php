@@ -18,13 +18,22 @@
 <div class="login-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-    <a href="/">
-        <img src="{{ asset('assets/logo.png') }}" 
-            alt="Logo" 
-            class="img-fluid" 
-            style="max-width: 110px;"> 
-    </a>
+  <a href="/" class="d-flex align-items-center justify-content-center" style="text-decoration: none;">
+    <img src="{{ asset('assets/LOGO.png') }}" 
+         alt="Logo" 
+         style="height: 50px; width: auto;" 
+         class="mr-3">
+    
+    <div class="text-left">
+      <h3 class="font-weight-bold mb-0" style="color: #1a202c; font-size: 1.5rem; line-height: 1;">
+        SIEKSTRA
+      </h3>
+      <p class="text-muted mb-0" style="font-size: 0.85rem; white-space: nowrap;">
+        Sistem Ekstrakurikuler
+      </p>
     </div>
+  </a>
+</div>
     <div class="card-body">
       <p class="login-box-msg">Login Untuk Masuk Ke Dashboard</p>
 
