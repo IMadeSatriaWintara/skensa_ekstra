@@ -20,10 +20,10 @@
             <div class="lg:col-span-2">
                 <h6 class="font-semibold text-gray-800 mb-3">Fitur</h6>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="text-gray-500 hover:text-blue-600 transition">Beranda</a></li>
-                    <li><a href="#" class="text-gray-500 hover:text-blue-600 transition">Ekskul</a></li>
-                    <li><a href="#" class="text-gray-500 hover:text-blue-600 transition">Berita</a></li>
-                    <li><a href="#" class="text-gray-500 hover:text-blue-600 transition">Prestasi</a></li>
+                    <li><a href="/" class="text-gray-500 hover:text-blue-600 transition">Beranda</a></li>
+                    <li><a href="/ekskul" class="text-gray-500 hover:text-blue-600 transition">Ekskul</a></li>
+                    <li><a href="/berita" class="text-gray-500 hover:text-blue-600 transition">Berita</a></li>
+                    <li><a href="/prestasi" class="text-gray-500 hover:text-blue-600 transition">Prestasi</a></li>
                 </ul>
             </div>
 

@@ -206,7 +206,7 @@
                 <!-- Badge -->
                 <div class="absolute top-4 right-4">
                     <span class="inline-block px-4 py-2 bg-[#456CA2] text-white text-xs font-bold rounded-full">
-                        🏆 Nasional
+                        🏆 Akademik
                     </span>
                 </div>
                 
