@@ -351,9 +351,6 @@
                     dan pengumuman ekstrakurikuler secara cepat
                     dan mudah.
                 </p>
-                <a href="#" class="text-blue-600 font-semibold hover:underline">
-                    Lihat selengkapnya →
-                </a>
             </div>
 
             <!-- PEMBINA -->
@@ -365,9 +362,7 @@
                     Kelola jadwal kegiatan dan pantau partisipasi
                     siswa dalam satu sistem terintegrasi.
                 </p>
-                <a href="#" class="font-semibold hover:underline">
-                    Lihat selengkapnya →
-                </a>
+               
             </div>
 
         </div>
