@@ -30,6 +30,9 @@ Route::get('/prestasi', function () {
 Route::get('/tentang', function () {
     return view('FRONTEND.tentang');
 });
+Route::view('/kategori-prestasi', 'FRONTEND.detailkategori');
+Route::view('/detail-prestasi', 'FRONTEND.detailprestasi');
+
 
 
 
