@@ -1,6 +1,17 @@
 @extends('FRONTEND.layouts.app')
 
-@section('title', 'Kategori Prestasi')
+@php
+    $kategoriSlug = request('kategori', 'akademik');
+    $kategoriNama = match($kategoriSlug) {
+        'akademik' => 'Akademik',
+        'olahraga' => 'Olahraga',
+        'seni-budaya' => 'Seni & Budaya',
+        'teknologi-inovasi' => 'Teknologi & Inovasi',
+        default => 'Akademik'
+    };
+@endphp
+
+@section('title', 'Kategori: ' . $kategoriNama)
 
 @section('content')
 
@@ -14,8 +25,8 @@
 
     <div class="relative z-10 flex items-center justify-center h-full text-center text-white">
         <div>
-            <h1 class="text-3xl md:text-4xl font-bold">
-                Kategori: Akademik
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+                Kategori: {{ $kategoriNama }}
             </h1>
             <p class="text-sm mt-2">
                 Daftar prestasi dalam kategori ini
@@ -31,7 +42,7 @@
         <div class="grid md:grid-cols-3 gap-6">
 
             <!-- CARD 1 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
+            <a href="{{ url('/detail-prestasi') }}" class="group bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
                 <div class="relative">
                     <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
                         class="w-full h-48 object-cover group-hover:scale-105 transition">
@@ -50,7 +61,7 @@
             </a>
 
             <!-- CARD 2 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
+            <a href="{{ url('/detail-prestasi') }}" class="group bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
                 <div class="relative">
                     <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
                         class="w-full h-48 object-cover group-hover:scale-105 transition">
@@ -69,7 +80,7 @@
             </a>
 
             <!-- CARD 3 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
+            <a href="{{ url('/detail-prestasi') }}" class="group bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
                 <div class="relative">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
                         class="w-full h-48 object-cover group-hover:scale-105 transition">

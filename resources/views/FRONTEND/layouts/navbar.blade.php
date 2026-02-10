@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="bg-white border-b border-gray-200">
+<nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 lg:px-6">
         <div class="flex items-center justify-between h-16">
 

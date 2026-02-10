@@ -2,6 +2,19 @@
 
 @section('title', 'Berita SIEKSTRA')
 
+@section('styles')
+<style>
+    .scroll-animate { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .scroll-animate.animate-in { opacity: 1; transform: translateY(0); }
+    .scroll-animate-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .scroll-animate-left.animate-in { opacity: 1; transform: translateX(0); }
+    .scroll-animate-right { opacity: 0; transform: translateX(28px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .scroll-animate-right.animate-in { opacity: 1; transform: translateX(0); }
+    .scroll-animate-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .scroll-animate-scale.animate-in { opacity: 1; transform: scale(1); }
+</style>
+@endsection
+
 @section('content')
 
 <!-- ================= HERO ================= -->
@@ -18,8 +31,8 @@
 
     <!-- Content -->
     <div class="relative z-10 h-full flex items-center">
-    <div class="max-w-7xl mx-auto px-4 w-full text-white">
-        <h1 class="text-3xl font-bold mb-2">
+    <div class="max-w-7xl mx-auto px-4 w-full text-white scroll-animate-left" data-delay="0">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
             Berita & Informasi Terbaru
         </h1>
         <p class="text-sm md:text-base text-gray-200 max-w-xl">
@@ -42,7 +55,7 @@
             <!-- ===== KONTEN KIRI ===== -->
             <div class="lg:col-span-7 space-y-12">
                 <!-- CARD 1 -->
-                <article>
+                <article class="scroll-animate" data-delay="0">
                     <img
     src="{{ asset('assets/berita.jpeg') }}"
     alt="Berita"
@@ -79,7 +92,7 @@
                 </article>
 
                 <!-- CARD 2 (PASTI DI BAWAH) -->
-                <article>
+                <article class="scroll-animate" data-delay="100">
                     <img
     src="{{ asset('assets/berita.jpeg') }}"
     alt="Berita"
@@ -123,7 +136,7 @@
             <div class="hidden lg:block absolute left-0 top-0 h-full w-px bg-gray-200"></div>
 
             <!-- Search -->
-            <div>
+            <div class="scroll-animate-right" data-delay="0">
                 <div class="flex items-center border border-gray-300 rounded-xl px-4 py-3">
                     <span class="text-gray-400 mr-2">🔍</span>
                     <input type="text"
@@ -133,7 +146,7 @@
             </div>
 
             <!-- Kategori -->
-            <div>
+            <div class="scroll-animate-right" data-delay="100">
                 <h6 class="text-sm font-bold mb-3">Kategori</h6>
                 <div class="flex flex-wrap gap-2">
                     <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi bla bla</span>
@@ -145,7 +158,7 @@
             </div>
 
             <!-- Berita Populer -->
-            <section>
+            <section class="scroll-animate-right" data-delay="200">
                 <h3 class="font-bold text-lg mb-4">Berita Populer</h3>
 
                 <section class="space-y-4">
@@ -187,4 +200,23 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+<script>
+(function() {
+    const observerOptions = { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 };
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+            setTimeout(function() { el.classList.add('animate-in'); }, delay);
+        });
+    }, observerOptions);
+    document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale').forEach(function(el) {
+        observer.observe(el);
+    });
+})();
+</script>
 @endsection

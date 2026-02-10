@@ -2,13 +2,54 @@
 
 @section('title', 'Sistem Manajemen Ekstrakurikuler')
 
+@section('styles')
+<style>
+    .scroll-animate {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scroll-animate.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .scroll-animate-left {
+        opacity: 0;
+        transform: translateX(-28px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scroll-animate-left.animate-in {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .scroll-animate-right {
+        opacity: 0;
+        transform: translateX(28px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scroll-animate-right.animate-in {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .scroll-animate-scale {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scroll-animate-scale.animate-in {
+        opacity: 1;
+        transform: scale(1);
+    }
+</style>
+@endsection
+
 @section('content')
 
 <!-- HERO -->
 <section class="py-20 bg-gradient-to-br from-gray-100 to-white">
     <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 items-center gap-12">
 
-        <div>
+        <div class="scroll-animate-left" data-delay="0">
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 Sistem Manajemen Ekstrakurikuler
             </h1>
@@ -29,7 +70,7 @@
             </form>
         </div>
 
-        <div class="flex justify-center">
+        <div class="flex justify-center scroll-animate-right" data-delay="100">
             <img src="{{ asset('assets/hero.png') }}" class="max-w-lg w-full">
         </div>
     </div>
@@ -38,11 +79,11 @@
 <!-- FEATURE -->
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
-        <div class="bg-white rounded-3xl shadow-xl p-12">
+        <div class="bg-white rounded-3xl shadow-xl p-12 scroll-animate-scale" data-delay="0">
 
             <!-- HEADER -->
             <div class="grid md:grid-cols-3 gap-10 items-center mb-16">
-                <div>
+                <div class="scroll-animate" data-delay="0">
                     <p class="text-blue-500 font-semibold mb-2">
                         SISTEM EKSTRAKURIKULER
                     </p>
@@ -52,11 +93,11 @@
                     </h2>
                 </div>
 
-                <div class="hidden md:flex justify-center">
+                <div class="hidden md:flex justify-center scroll-animate" data-delay="50">
                     <div class="w-px h-20 bg-gray-300"></div>
                 </div>
 
-                <p class="text-gray-500">
+                <p class="text-gray-500 scroll-animate" data-delay="100">
                     Sistem berbasis web yang membantu sekolah mengelola
                     kegiatan ekstrakurikuler secara efektif.
                 </p>
@@ -65,7 +106,7 @@
             <!-- ITEMS -->
             <div class="grid md:grid-cols-3 gap-12 text-center md:text-left">
 
-                <div>
+                <div class="scroll-animate" data-delay="150">
                     <div class="text-4xl mb-4">👤</div>
                     <h5 class="font-bold mb-2">Pendaftaran Mudah</h5>
                     <p class="text-gray-500">
@@ -74,7 +115,7 @@
                     </p>
                 </div>
 
-                <div>
+                <div class="scroll-animate" data-delay="200">
                     <div class="text-4xl mb-4">📅</div>
                     <h5 class="font-bold mb-2">Jadwal Terorganisir</h5>
                     <p class="text-gray-500">
@@ -83,7 +124,7 @@
                     </p>
                 </div>
 
-                <div>
+                <div class="scroll-animate" data-delay="250">
                     <div class="text-4xl mb-4">🏆</div>
                     <h5 class="font-bold mb-2">Kegiatan & Prestasi</h5>
                     <p class="text-gray-500">
@@ -102,7 +143,7 @@
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
 
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 scroll-animate" data-delay="0">
             <p class="text-blue-500 font-bold mb-2">KEUNGGULAN SISTEM</p>
             <h2 class="text-3xl font-bold">
                 Mengapa Sistem Ini Dibutuhkan Sekolah
@@ -112,7 +153,7 @@
         <div class="grid md:grid-cols-2 gap-10">
 
             <!-- Card 1 -->
-            <div class="bg-white rounded-3xl shadow p-12">
+            <div class="bg-white rounded-3xl shadow p-12 scroll-animate" data-delay="100">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="bg-blue-100 p-4 rounded-2xl">
                         <!-- Academic Cap Icon -->
@@ -134,7 +175,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-white rounded-3xl shadow p-12">
+            <div class="bg-white rounded-3xl shadow p-12 scroll-animate" data-delay="200">
                 <h5 class="font-bold mb-8 text-lg">
                     Akses & Pengelolaan Real-Time
                 </h5>
@@ -164,7 +205,7 @@
             </div>
 
             <!-- Card 3 Full Width -->
-            <div class="bg-white rounded-3xl shadow p-12 md:col-span-2">
+            <div class="bg-white rounded-3xl shadow p-12 md:col-span-2 scroll-animate" data-delay="300">
                 <div class="grid md:grid-cols-2 gap-10 items-center">
 
                     <!-- Text -->
@@ -239,7 +280,7 @@
     <div class="max-w-7xl mx-auto px-4">
 
         <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
+            <div class="scroll-animate-left" data-delay="0">
                 <p class="uppercase font-semibold mb-2 tracking-wider">
                     ALUR SISTEM
                 </p>
@@ -252,14 +293,14 @@
                 </p>
             </div>
 
-            <div class="flex justify-center lg:justify-end">
+            <div class="flex justify-center lg:justify-end scroll-animate-right" data-delay="100">
                 <img src="/assets/alur-sistem.png" class="rounded-2xl max-h-64">
             </div>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8 text-center">
 
-            <div class="bg-[#426A9D] rounded-3xl p-8 shadow">
+            <div class="bg-[#426A9D] rounded-3xl p-8 shadow scroll-animate" data-delay="0">
                 <h1 class="text-6xl font-bold opacity-30 mb-2">1</h1>
                 <h5 class="font-semibold mb-2">Informasi Terpusat</h5>
                 <p class="text-sm opacity-75">
@@ -267,7 +308,7 @@
                 </p>
             </div>
 
-            <div class="bg-[#426A9D] rounded-3xl p-8 shadow">
+            <div class="bg-[#426A9D] rounded-3xl p-8 shadow scroll-animate" data-delay="100">
                 <h1 class="text-6xl font-bold opacity-30 mb-2">2</h1>
                 <h5 class="font-semibold mb-2">Pembaruan Otomatis</h5>
                 <p class="text-sm opacity-75">
@@ -275,7 +316,7 @@
                 </p>
             </div>
 
-            <div class="bg-[#426A9D] rounded-3xl p-8 shadow">
+            <div class="bg-[#426A9D] rounded-3xl p-8 shadow scroll-animate" data-delay="200">
                 <h1 class="text-6xl font-bold opacity-30 mb-2">3</h1>
                 <h5 class="font-semibold mb-2">Akses Cepat</h5>
                 <p class="text-sm opacity-75">
@@ -292,7 +333,7 @@
     <div class="max-w-7xl mx-auto px-4">
 
         <!-- HEADER -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 scroll-animate" data-delay="0">
             <p class="text-blue-500 font-semibold tracking-widest mb-2">
                 DAMPAK SISTEM
             </p>
@@ -309,7 +350,7 @@
         <!-- STATISTIK -->
         <div class="grid md:grid-cols-3 gap-10 text-center mb-16">
 
-            <div>
+            <div class="scroll-animate" data-delay="0">
                 <h1 class="text-5xl md:text-6xl font-bold text-gray-400 mb-2">
                     800+
                 </h1>
@@ -318,7 +359,7 @@
                 </p>
             </div>
 
-            <div>
+            <div class="scroll-animate" data-delay="100">
                 <h1 class="text-5xl md:text-6xl font-bold text-gray-400 mb-2">
                     12+
                 </h1>
@@ -327,7 +368,7 @@
                 </p>
             </div>
 
-            <div>
+            <div class="scroll-animate" data-delay="200">
                 <h1 class="text-5xl md:text-6xl font-bold text-gray-400 mb-2">
                     90%
                 </h1>
@@ -342,7 +383,7 @@
         <div class="grid md:grid-cols-2 gap-8">
 
             <!-- SISWA -->
-            <div class="bg-[#f8fbff] rounded-2xl shadow p-8">
+            <div class="bg-[#f8fbff] rounded-2xl shadow p-8 scroll-animate-left" data-delay="0">
                 <h5 class="font-bold mb-4 text-gray-900">
                     Siswa
                 </h5>
@@ -354,7 +395,7 @@
             </div>
 
             <!-- PEMBINA -->
-            <div class="bg-[#3f6596] rounded-2xl shadow p-8 text-white">
+            <div class="bg-[#3f6596] rounded-2xl shadow p-8 text-white scroll-animate-right" data-delay="100">
                 <h5 class="font-bold mb-4">
                     Pembina
                 </h5>
@@ -375,12 +416,13 @@
 <section class="py-20">
     <div class="max-w-7xl mx-auto px-4">
         <div
-            class="rounded-3xl p-14 text-white shadow-xl"
+            class="rounded-3xl p-14 text-white shadow-xl scroll-animate-scale"
             style="background-color:#365A8C;"
+            data-delay="0"
         >
 
             <div class="grid lg:grid-cols-2 gap-10 items-center">
-                <div>
+                <div class="scroll-animate-left" data-delay="0">
                     <p class="uppercase text-sm tracking-widest mb-2">
                         Coba Sekarang
                     </p>
@@ -394,7 +436,7 @@
                     </p>
                 </div>
 
-                <div class="flex gap-4 lg:justify-end flex-wrap">
+                <div class="flex gap-4 lg:justify-end flex-wrap scroll-animate-right" data-delay="100">
                     <a href="#"
                        class="bg-white text-[#365A8C] font-semibold px-6 py-3 rounded-full">
                         Daftar Sekarang
@@ -411,5 +453,27 @@
 </section>
 
 
+@endsection
+
+@section('scripts')
+<script>
+(function() {
+    const observerOptions = { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 };
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+            setTimeout(function() {
+                el.classList.add('animate-in');
+            }, delay);
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale').forEach(function(el) {
+        observer.observe(el);
+    });
+})();
+</script>
 @endsection
 

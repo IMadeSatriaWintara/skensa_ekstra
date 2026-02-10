@@ -27,7 +27,7 @@
                     Akademik
                 </span>
             </div>
-            <h1 class="text-3xl font-bold mb-2">
+            <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
                 Detail Prestasi
             </h1>
             <p class="text-sm md:text-base text-gray-200 max-w-xl">

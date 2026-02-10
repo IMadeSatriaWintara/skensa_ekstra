@@ -18,7 +18,7 @@
     <!-- Content -->
     <div class="relative z-10 h-full flex items-center">
     <div class="max-w-7xl mx-auto px-4 w-full text-white">
-        <h1 class="text-3xl font-bold mb-2">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
             Berita & Informasi Terbaru
         </h1>
         <p class="text-sm md:text-base text-gray-200 max-w-xl">

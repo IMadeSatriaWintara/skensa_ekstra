@@ -31,9 +31,8 @@
             <div class="lg:col-span-2">
                 <h6 class="font-semibold text-gray-800 mb-3">Tentang</h6>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="text-gray-500 hover:text-blue-600 transition">Tentang Kami</a></li>
-                    <li><a href="#" class="text-gray-500 hover:text-blue-600 transition">Blog</a></li>
-                    <li><a href="#" class="text-gray-500 hover:text-blue-600 transition">Karir</a></li>
+                    <li><a href="/tentang" class="text-gray-500 hover:text-blue-600 transition">Tentang Kami</a></li>
+                    
                 </ul>
             </div>
 

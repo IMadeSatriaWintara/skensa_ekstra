@@ -2,6 +2,19 @@
 
 @section('title', 'Tentang SIEKSTRA')
 
+@section('styles')
+<style>
+    .scroll-animate { opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .scroll-animate.animate-in { opacity: 1; transform: translateY(0); }
+    .scroll-animate-left { opacity: 0; transform: translateX(-24px); transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .scroll-animate-left.animate-in { opacity: 1; transform: translateX(0); }
+    .scroll-animate-right { opacity: 0; transform: translateX(24px); transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .scroll-animate-right.animate-in { opacity: 1; transform: translateX(0); }
+    .scroll-animate-scale { opacity: 0; transform: scale(0.97); transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .scroll-animate-scale.animate-in { opacity: 1; transform: scale(1); }
+</style>
+@endsection
+
 @section('content')
 
 <!-- HERO -->
@@ -9,7 +22,7 @@
     <img src="{{ asset('assets/hero-tentang.png') }}" alt="Hero" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-transparent to-sky-900/40"></div>
     <div class="relative z-10 h-full flex items-center">
-        <div class="max-w-7xl mx-auto px-6 w-full text-white">
+        <div class="max-w-7xl mx-auto px-6 w-full text-white scroll-animate-left" data-delay="0">
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight"> Tentang Sistem Informasi<br>Ekstrakurikuler</h1>
             <p class="mt-3 text-gray-200 max-w-2xl">Website ini dibuat sebagai pusat informasi kegiatan ekstrakurikuler 
                 sekolah untuk memudahkan siswa, pembina, dan pihak sekolah dalam mengakses informasi secara cepat, akurat, 
@@ -24,7 +37,7 @@
 
         <!-- Latar Belakang -->
         <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div class="space-y-4">
+            <div class="space-y-4 scroll-animate-left" data-delay="0">
                 <h2 class="text-2xl font-bold text-[#456CA2]">Latar Belakang</h2>
                 <p class="text-gray-600">Kegiatan ekstrakurikuler 
                     berperan penting dalam mengembangkan minat, 
@@ -35,16 +48,16 @@
                 </p>
             </div>
 
-            <div class="w-full">
+            <div class="w-full scroll-animate-right" data-delay="150">
                 <img src="{{ asset('assets/latkang-tentang.png') }}" alt="Kegiatan" class="rounded-xl shadow-lg object-cover w-full h-80">
             </div>
         </section>
 
         <!-- Tujuan Website -->
         <section>
-            <h3 class="text-2xl font-semibold mb-6 text-black">Tujuan Website</h3>
+            <h3 class="text-2xl font-semibold mb-6 text-black scroll-animate" data-delay="0">Tujuan Website</h3>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
+                <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all scroll-animate-scale" data-delay="0">
                     <div class="h-44 bg-gradient-to-br from-[#F7FBFF] to-[#EAF4FF] flex items-center justify-center relative overflow-hidden">
                         <svg class="absolute -top-10 -left-10 w-40 h-40 opacity-15 rotate-45 text-[#CFE9FF]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="50" cy="50" r="50" fill="#CFE9FF" />
@@ -63,7 +76,7 @@
                     </div>
                 </div>
 
-                <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
+                <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all scroll-animate-scale" data-delay="150">
                     <div class="h-44 bg-gradient-to-br from-[#FFF9F4] to-[#FFF1E6] flex items-center justify-center relative overflow-hidden">
                         <svg class="absolute -bottom-8 -right-8 w-40 h-40 opacity-10 text-[#FFE6C7]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="100" height="100" rx="20" fill="#FFE6C7" />
@@ -82,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
+                <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all scroll-animate-scale" data-delay="300">
                     <div class="h-44 bg-gradient-to-br from-[#F7FFF6] to-[#E8FFF0] flex items-center justify-center relative overflow-hidden">
                         <svg class="absolute -top-6 -right-6 w-36 h-36 opacity-12 text-[#DFF7E9]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 50 C25 20,75 80,100 50 L100 100 L0 100 Z" fill="#DFF7E9" />
@@ -105,11 +118,11 @@
 
         <!-- Apa yang bisa ditemukan -->
         <section class="relative">
-            <h3 class="text-2xl font-semibold mb-6">Apa yang bisa di temukan di website ini</h3>
+            <h3 class="text-2xl font-semibold mb-6 scroll-animate" data-delay="0">Apa yang bisa di temukan di website ini</h3>
             <div class="relative">
                 <div class="hidden md:block absolute left-1/2 top-6 bottom-6 w-px bg-gray-200 -translate-x-1/2"></div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-6">
+                    <div class="space-y-6 scroll-animate-left" data-delay="0">
                         <div class="flex items-start gap-4">
                             <div class="w-14 h-14 bg-white rounded-full shadow flex items-center justify-center text-black">
                                 <!-- book icon -->
@@ -133,7 +146,7 @@
                         </div>
                     </div>
 
-                    <div class="space-y-6">
+                    <div class="space-y-6 scroll-animate-right" data-delay="150">
                         <div class="flex items-start gap-4">
                             <div class="w-14 h-14 bg-white rounded-full shadow flex items-center justify-center text-black">
                                 <!-- trophy icon -->
@@ -162,20 +175,20 @@
 
         <!-- Peran & Manfaat -->
         <section>
-            <h3 class="text-2xl font-semibold mb-6">Peran & Manfaat</h3>
+            <h3 class="text-2xl font-semibold mb-6 scroll-animate" data-delay="0">Peran & Manfaat</h3>
 
             <!-- CARD INFO -->
             <div class="grid md:grid-cols-2 gap-8">
 
                 <!-- SISWA -->
-                <div class="bg-[#f8fbff] rounded-2xl shadow p-8">
+                <div class="bg-[#f8fbff] rounded-2xl shadow p-8 scroll-animate-left" data-delay="0">
                     <h5 class="font-bold mb-4 text-gray-900">Siswa</h5>
                     <p class="text-gray-500 leading-relaxed mb-6">Akses informasi kegiatan, jadwal latihan, dan pengumuman ekstrakurikuler secara cepat dan mudah.</p>
                    
                 </div>
 
                 <!-- PEMBINA -->
-                <div class="bg-[#3f6596] rounded-2xl shadow p-8 text-white">
+                <div class="bg-[#3f6596] rounded-2xl shadow p-8 text-white scroll-animate-right" data-delay="150">
                     <h5 class="font-bold mb-4">Sekolah & Pembina</h5>
                     <p class="opacity-80 leading-relaxed mb-6">Kelola jadwal kegiatan dan pantau partisipasi siswa dalam satu sistem terintegrasi. Dokumentasi dan publikasi prestasi sekolah menjadi lebih mudah.</p>
                     
@@ -186,16 +199,16 @@
 
         <!-- Visi & Misi -->
         <section>
-            <h3 class="text-2xl font-semibold mb-6">Visi & Misi</h3>
+            <h3 class="text-2xl font-semibold mb-6 scroll-animate" data-delay="0">Visi & Misi</h3>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-[#f8fbff] rounded-2xl shadow p-8">
+                <div class="bg-[#f8fbff] rounded-2xl shadow p-8 scroll-animate" data-delay="0">
                     <h5 class="font-bold mb-4 text-gray-900">Visi</h5>
                     <p class="text-gray-500 leading-relaxed mb-6">Menjadi media informasi ekstrakurikuler terintegrasi yang membantu pengembangan potensi siswa secara optimal.</p>
                     
                 </div>
 
-                <div class="bg-white rounded-2xl shadow p-8">
+                <div class="bg-white rounded-2xl shadow p-8 scroll-animate" data-delay="150">
                     <h5 class="font-bold mb-4">Misi</h5>
                     <ul class="text-gray-600 list-disc list-inside space-y-2 mb-6">
                         <li>Menyajikan informasi ekskul yang akurat.</li>
@@ -213,12 +226,13 @@
 <section class="py-20">
     <div class="max-w-7xl mx-auto px-4">
         <div
-            class="rounded-3xl p-14 text-white shadow-xl"
+            class="rounded-3xl p-14 text-white shadow-xl scroll-animate-scale"
             style="background-color:#365A8C;"
+            data-delay="0"
         >
 
             <div class="grid lg:grid-cols-2 gap-10 items-center">
-                <div>
+                <div class="scroll-animate-left" data-delay="0">
                     <p class="uppercase text-sm tracking-widest mb-2">
                         Coba Sekarang
                     </p>
@@ -232,7 +246,7 @@
                     </p>
                 </div>
 
-                <div class="flex gap-4 lg:justify-end flex-wrap">
+                <div class="flex gap-4 lg:justify-end flex-wrap scroll-animate-right" data-delay="150">
                     <a href="#"
                        class="bg-white text-[#365A8C] font-semibold px-6 py-3 rounded-full">
                         Daftar Sekarang
@@ -247,4 +261,23 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+<script>
+(function() {
+    const observerOptions = { root: null, rootMargin: '0px 0px -80px 0px', threshold: 0.08 };
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            var el = entry.target;
+            var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+            setTimeout(function() { el.classList.add('animate-in'); }, delay);
+        });
+    }, observerOptions);
+    document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale').forEach(function(el) {
+        observer.observe(el);
+    });
+})();
+</script>
 @endsection
