@@ -149,11 +149,11 @@
             <div class="scroll-animate-right" data-delay="100">
                 <h6 class="text-sm font-bold mb-3">Kategori</h6>
                 <div class="flex flex-wrap gap-2">
-                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi bla bla</span>
-                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi</span>
-                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi anjay</span>
-                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi itu</span>
-                    <span class="px-4 py-1.5 text-xs rounded-full border text-gray-600">Inovasi ini</span>
+                    <a href="{{ url('/kategori-berita?kategori=inovasi-bla-bla') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi bla bla</a>
+                    <a href="{{ url('/kategori-berita?kategori=inovasi') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi</a>
+                    <a href="{{ url('/kategori-berita?kategori=inovasi-anjay') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi anjay</a>
+                    <a href="{{ url('/kategori-berita?kategori=inovasi-itu') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi itu</a>
+                    <a href="{{ url('/kategori-berita?kategori=inovasi-ini') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi ini</a>
                 </div>
             </div>
 
