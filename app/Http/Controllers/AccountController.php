@@ -71,4 +71,11 @@ public function updateakun(Request $request, $id)
 
     return redirect('/akun')->with('update', 'Akun Berhasil Diperbarui!');
 }
+
+public function delete($id)
+{
+    DB::table('admin_ekstra')->where('id', $id)->delete();
+    
+    return redirect('/akun')->with('delete', 'Akun Berhasil Dihapus!');
+}
 }

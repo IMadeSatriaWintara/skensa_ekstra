@@ -37,10 +37,10 @@
     <div class="card-body">
       <p class="login-box-msg">Login Untuk Masuk Ke Dashboard</p>
 
-      <form action="/loginproses" method="post">
+      <form action="/login" method="POST">
         @csrf
         <div class="input-group mb-3">
-          <input type="username" class="form-control" name="Username" placeholder="Email">
+          <input type="text" class="form-control" name="username" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="Password" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
