@@ -36,6 +36,8 @@
     .main-sidebar {
       background-color: #ffffff !important;
       border-right: 1px solid #dee2e6;
+      overflow-y: auto;
+      max-height: 100vh;
     }
     .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
     .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
@@ -204,50 +206,19 @@
             </a>
           </li>
 
-          <!-- Gallery -->
+          <!-- Kategori -->
           <li class="nav-item">
-            <a href="/galeri" class="nav-link">
-              <i class="nav-icon fas fa-image"></i>
-              <p>Gallery</p>
-            </a>
-          </li>
-
-          <!-- Program -->
-          <li class="nav-item">
-            <a href="/programs" class="nav-link">
-              <i class="nav-icon fas fa-heartbeat"></i>
-              <p>Program</p>
-            </a>
-          </li>
-
-          <!-- Pemilik Fasilitas -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-building"></i>
+            <a href="/kategori" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
               <p>
-                Admin Ekstrakurikuler
-                <i class="right fas fa-angle-left"></i>
+                Kategori
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/venue" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Kategori</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/tempat-sehat" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Ekstrakurikuler</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <!-- Aktivitas -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/prestasi-superadmin" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
                 Prestasi

@@ -37,6 +37,8 @@
     .main-sidebar {
       background-color: #ffffff !important;
       border-right: 1px solid #dee2e6;
+      overflow-y: auto;
+      max-height: 100vh;
     }
     
     .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
@@ -253,77 +255,28 @@
 
           <!-- Ekstrakurikuler -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/ekstra" class="nav-link">
               <i class="nav-icon fas fa-school"></i>
-              <p>
-                Ekstrakurikuler
-                <i class="right fas fa-angle-left"></i>
-              </p>
+              <p>Ekstrakurikuler</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/ekstra" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Ekstrakurikuler</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/ekstra/create" class="nav-link">
-                  <i class="far fa-plus-square nav-icon"></i>
-                  <p>Tambah Ekstrakurikuler</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <!-- Prestasi -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/prestasi-admin" class="nav-link">
               <i class="nav-icon fas fa-trophy"></i>
-              <p>
-                Prestasi
-                <i class="right fas fa-angle-left"></i>
-              </p>
+              <p>Prestasi</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/prestasi" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Prestasi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/prestasi/create" class="nav-link">
-                  <i class="far fa-plus-square nav-icon"></i>
-                  <p>Tambah Prestasi</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <!-- Kategori -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/kategori" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
               <p>
                 Kategori
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/kategori" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Kategori</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/kategori/create" class="nav-link">
-                  <i class="far fa-plus-square nav-icon"></i>
-                  <p>Tambah Kategori</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <!-- Gallery -->
@@ -331,39 +284,6 @@
             <a href="/galeri" class="nav-link">
               <i class="nav-icon fas fa-images"></i>
               <p>Gallery</p>
-            </a>
-          </li>
-
-          <!-- Berita -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-newspaper"></i>
-              <p>
-                Berita
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/berita" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Berita</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/berita/create" class="nav-link">
-                  <i class="far fa-plus-square nav-icon"></i>
-                  <p>Tambah Berita</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <!-- Akun -->
-          <li class="nav-item">
-            <a href="/akun" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>Kelola Akun</p>
             </a>
           </li>
         </ul>
