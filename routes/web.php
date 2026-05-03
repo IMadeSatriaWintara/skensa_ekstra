@@ -28,6 +28,9 @@ Route::get('/berita', function () {
 Route::get('/detailberita', function () {
     return view('FRONTEND.detailberita');
 });
+Route::get('/ekskul', function () {
+    return view('FRONTEND.eskul');
+});
 Route::view('/kategori-berita', 'FRONTEND.kategoriberita');
 Route::get('/prestasi', function () {
     return view('FRONTEND.prestasi');
