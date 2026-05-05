@@ -274,7 +274,16 @@
             <a href="/kategori" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
               <p>
-                Kategori
+                Kategori Prestasi
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                Kategori Tingkat
               </p>
             </a>
           </li>
@@ -284,6 +293,13 @@
             <a href="/galeri" class="nav-link">
               <i class="nav-icon fas fa-images"></i>
               <p>Gallery</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/galeri-prestasi" class="nav-link">
+              <i class="nav-icon fas fa-images"></i>
+              <p>Gallery Prestasi</p>
             </a>
           </li>
         </ul>

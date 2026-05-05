@@ -38,31 +38,34 @@
 
             <!-- Meta -->
             <section class="mb-4 text-sm text-gray-500 flex flex-wrap gap-2 items-center">
-                <span>🗓 21 Oktober 2026</span>
+                <span>🗓 {{ \Carbon\Carbon::parse($berita->created_at)->translatedFormat('d F Y') }}</span>
                 <span>|</span>
-                <span>Kategori : <a href="{{ url('/kategori-berita?kategori=riset-dan-inovasi') }}" class="font-semibold text-blue-600 hover:underline">Riset dan Inovasi</a></span>
+                <span>Kategori :
+                    <a href="{{ url('/berita?kategori=' . $berita->category_berita_id) }}" class="font-semibold text-blue-600 hover:underline">
+                        {{ $berita->nama_kategori ?? '-' }}
+                    </a>
+                </span>
             </section>
 
             <!-- Judul -->
             <section class="mb-5">
                 <h1 class="text-2xl lg:text-3xl font-bold leading-snug">
-                    Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
+                    {{ $berita->judul }}
                 </h1>
             </section>
 
             <!-- Ringkasan -->
             <section class="mb-6">
                 <p class="text-gray-700 leading-relaxed">
-                    Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                    Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
+                    {{ \Illuminate\Support\Str::limit(strip_tags($berita->deskripsi), 250) }}
                 </p>
             </section>
 
             <!-- Gambar -->
             <section class="mb-6 rounded-2xl overflow-hidden">
                 <img
-                    src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
-                    alt="Gambar Berita"
+                    src="{{ $berita->gambar ? asset('uploads/berita/' . $berita->gambar) : asset('assets/berita.jpeg') }}"
+                    alt="{{ $berita->judul }}"
                     class="w-full 
                         h-[220px] 
                         sm:h-[260px] 
@@ -76,12 +79,7 @@
             <!-- Isi Berita -->
             <section class="space-y-5 text-gray-700 leading-relaxed">
                 <p>
-                    Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                    Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                </p>
-                <p>
-                    Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                    Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
+                    {!! nl2br(e($berita->deskripsi)) !!}
                 </p>
             </section>
 
@@ -94,11 +92,12 @@
             <div>
                 <h6 class="text-sm font-bold mb-3">Kategori</h6>
                 <div class="flex flex-wrap gap-2">
-                    <a href="{{ url('/kategori-berita?kategori=inovasi-bla-bla') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi bla bla</a>
-                    <a href="{{ url('/kategori-berita?kategori=inovasi') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi</a>
-                    <a href="{{ url('/kategori-berita?kategori=inovasi-anjay') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi anjay</a>
-                    <a href="{{ url('/kategori-berita?kategori=inovasi-itu') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi itu</a>
-                    <a href="{{ url('/kategori-berita?kategori=inovasi-ini') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi ini</a>
+                    @foreach ($kategoriList as $kategori)
+                        <a href="{{ url('/berita?kategori=' . $kategori->id) }}"
+                           class="px-4 py-1.5 text-xs rounded-full border {{ $berita->category_berita_id == $kategori->id ? 'bg-blue-600 text-white border-blue-600' : 'text-gray-600' }} hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">
+                            {{ $kategori->nama_kategori }}
+                        </a>
+                    @endforeach
                 </div>
             </div>
 
@@ -108,34 +107,23 @@
 
                 <section class="space-y-4">
 
-                    <!-- Item -->
-                    <a href="/detailberita" class="flex gap-4 hover:opacity-80 transition">
-                        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
-                             class="w-24 h-16 object-cover rounded-lg"
-                             alt="">
-                        <section>
-                            <h4 class="text-sm font-semibold leading-snug">
-                                Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                            </h4>
-                            <p class="text-xs text-gray-500 mt-1">
-                                21 Oktober 2026
-                            </p>
-                        </section>
-                    </a>
-
-                    <a href="/detailberita" class="flex gap-4 hover:opacity-80 transition">
-                        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
-                             class="w-24 h-16 object-cover rounded-lg"
-                             alt="">
-                        <section>
-                            <h4 class="text-sm font-semibold leading-snug">
-                                Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                            </h4>
-                            <p class="text-xs text-gray-500 mt-1">
-                                21 Oktober 2026
-                            </p>
-                        </section>
-                    </a>
+                    @forelse ($beritaPopuler as $item)
+                        <a href="{{ url('/detailberita/' . $item->id) }}" class="flex gap-4 hover:opacity-80 transition">
+                            <img src="{{ $item->gambar ? asset('uploads/berita/' . $item->gambar) : asset('assets/berita.jpeg') }}"
+                                 class="w-24 h-16 object-cover rounded-lg"
+                                 alt="{{ $item->judul }}">
+                            <section>
+                                <h4 class="text-sm font-semibold leading-snug">
+                                    {{ \Illuminate\Support\Str::limit($item->judul, 70) }}
+                                </h4>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}
+                                </p>
+                            </section>
+                        </a>
+                    @empty
+                        <p class="text-sm text-gray-500">Belum ada berita populer.</p>
+                    @endforelse
 
                 </section>
             </section>

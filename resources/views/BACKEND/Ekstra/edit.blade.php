@@ -34,6 +34,10 @@
                             <input type="text" name="nama_ekstra" class="form-control" value="{{ old('nama_ekstra', $data->nama_ekstra) }}" required>
                         </div>
                         <div class="form-group">
+                            <label>Short Content</label>
+                            <textarea name="short_content" rows="2" class="form-control" placeholder="Ringkasan singkat ekstrakurikuler (maks. 300 karakter)" required>{{ old('short_content', $data->short_content ?? '') }}</textarea>
+                        </div>
+                        <div class="form-group">
                             <label>Content / Deskripsi Ekstra</label>
                             <textarea name="deskripsi" rows="5" class="form-control" required>{{ old('deskripsi', $data->deskripsi) }}</textarea>
                         </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\SuperController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +24,98 @@ Route::get('/', function () {
     return view('FRONTEND.home');
 });
 Route::get('/berita', function () {
-    return view('FRONTEND.berita');
+    $kategoriId = request('kategori');
+
+    $beritaQuery = DB::table('berita')
+        ->leftJoin('category_berita', 'berita.category_berita_id', '=', 'category_berita.id')
+        ->select('berita.*', 'category_berita.nama_kategori')
+        ->orderByDesc('berita.created_at');
+
+    if (!empty($kategoriId)) {
+        $beritaQuery->where('berita.category_berita_id', $kategoriId);
+    }
+
+    $berita = $beritaQuery->get();
+    $kategoriList = DB::table('category_berita')->orderBy('nama_kategori')->get();
+    $beritaPopuler = DB::table('berita')
+        ->leftJoin('category_berita', 'berita.category_berita_id', '=', 'category_berita.id')
+        ->select('berita.*', 'category_berita.nama_kategori')
+        ->orderByDesc('berita.jumlah_tayang')
+        ->orderByDesc('berita.created_at')
+        ->limit(5)
+        ->get();
+    $kategoriAktif = null;
+    if (!empty($kategoriId)) {
+        $kategoriAktif = DB::table('category_berita')->where('id', $kategoriId)->first();
+    }
+
+    return view('FRONTEND.berita', compact('berita', 'kategoriList', 'beritaPopuler', 'kategoriAktif'));
 });
 Route::get('/detailberita', function () {
-    return view('FRONTEND.detailberita');
+    $berita = DB::table('berita')->orderByDesc('id')->first();
+    abort_if(!$berita, 404);
+    return redirect(url('/detailberita/' . $berita->id));
+});
+Route::get('/detailberita/{id}', function ($id) {
+    $berita = DB::table('berita')
+        ->leftJoin('category_berita', 'berita.category_berita_id', '=', 'category_berita.id')
+        ->select('berita.*', 'category_berita.nama_kategori')
+        ->where('berita.id', $id)
+        ->first();
+    abort_if(!$berita, 404);
+
+    DB::table('berita')->where('id', $id)->update([
+        'jumlah_tayang' => DB::raw('jumlah_tayang + 1'),
+        'updated_at' => now(),
+    ]);
+
+    $kategoriList = DB::table('category_berita')->orderBy('nama_kategori')->get();
+    $beritaPopuler = DB::table('berita')
+        ->leftJoin('category_berita', 'berita.category_berita_id', '=', 'category_berita.id')
+        ->select('berita.*', 'category_berita.nama_kategori')
+        ->where('berita.id', '!=', $id)
+        ->orderByDesc('berita.jumlah_tayang')
+        ->orderByDesc('berita.created_at')
+        ->limit(5)
+        ->get();
+
+    // Fallback: jika data populer kurang, isi dengan berita terbaru agar sidebar tidak kosong.
+    if ($beritaPopuler->count() < 5) {
+        $existingIds = $beritaPopuler->pluck('id')->toArray();
+        $beritaTerbaruTambahan = DB::table('berita')
+            ->leftJoin('category_berita', 'berita.category_berita_id', '=', 'category_berita.id')
+            ->select('berita.*', 'category_berita.nama_kategori')
+            ->whereNotIn('berita.id', $existingIds)
+            ->orderByDesc('berita.created_at')
+            ->limit(5 - $beritaPopuler->count())
+            ->get();
+
+        $beritaPopuler = $beritaPopuler->concat($beritaTerbaruTambahan);
+    }
+
+    return view('FRONTEND.detailberita', compact('berita', 'kategoriList', 'beritaPopuler'));
 });
 Route::get('/ekskul', function () {
-    return view('FRONTEND.eskul');
+    $ekstras = DB::table('ekstrakurikuler')
+        ->orderByDesc('id')
+        ->get();
+
+    return view('FRONTEND.eskul', compact('ekstras'));
 });
-Route::view('/kategori-berita', 'FRONTEND.kategoriberita');
+Route::get('/detailekskul/{id}', function ($id) {
+    $ekstra = DB::table('ekstrakurikuler')->where('id', $id)->first();
+    abort_if(!$ekstra, 404);
+
+    $galeriFotos = DB::table('galeri')
+        ->where('admin_ekstra_id', $ekstra->admin_ekstra_id)
+        ->orderByDesc('id')
+        ->get();
+
+    return view('FRONTEND.detaileskul', compact('ekstra', 'galeriFotos'));
+});
+Route::get('/kategori-berita', function () {
+    return redirect(url('/berita?kategori=' . request('kategori')));
+});
 Route::get('/prestasi', function () {
     return view('FRONTEND.prestasi');
 });
@@ -62,6 +146,12 @@ Route::middleware(['role'])->group(function () {
         Route::get('/galeri/{id}/edit', [AdminController::class, 'galeriEdit'])->name('galeri.edit');
         Route::put('/galeri/{id}', [AdminController::class, 'galeriUpdate'])->name('galeri.update');
         Route::delete('/galeri/{id}', [AdminController::class, 'galeriDestroy'])->name('galeri.destroy');
+        Route::get('/galeri-prestasi', [AdminController::class, 'galeriPrestasiIndex'])->name('galeri-prestasi.index');
+        Route::get('/galeri-prestasi/create', [AdminController::class, 'galeriPrestasiCreate'])->name('galeri-prestasi.create');
+        Route::post('/galeri-prestasi', [AdminController::class, 'galeriPrestasiStore'])->name('galeri-prestasi.store');
+        Route::get('/galeri-prestasi/{id}/edit', [AdminController::class, 'galeriPrestasiEdit'])->name('galeri-prestasi.edit');
+        Route::put('/galeri-prestasi/{id}', [AdminController::class, 'galeriPrestasiUpdate'])->name('galeri-prestasi.update');
+        Route::delete('/galeri-prestasi/{id}', [AdminController::class, 'galeriPrestasiDestroy'])->name('galeri-prestasi.destroy');
         Route::get('/ekstra', [AdminController::class, 'ekstraIndex'])->name('ekstra.index');
         Route::get('/ekstra/create', [AdminController::class, 'ekstraCreate'])->name('ekstra.create');
         Route::post('/ekstra', [AdminController::class, 'ekstraStore'])->name('ekstra.store');

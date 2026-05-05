@@ -102,32 +102,27 @@
         </div>
 
         <div class="ekstra-wrapper">
-            @php
-                $ekstras = [
-                    ['nama' => 'Futsal', 'file' => 'futsal.jpg', 'desc' => 'Olahraga tim yang melatih kecepatan dan kerjasama.'],
-                    ['nama' => 'Basket', 'file' => 'basket.jpg', 'desc' => 'Melatih ketangkasan dan strategi bola basket.'],
-                    ['nama' => 'Voli', 'file' => 'voli.jpg', 'desc' => 'Membangun kekuatan fisik dan kerjasama tim.'],
-                    ['nama' => 'Karate', 'file' => 'karate.jpg', 'desc' => 'Bela diri untuk perlindungan diri dan disiplin tinggi.'],
-                    ['nama' => 'Pramuka', 'file' => 'pramuka.jpg', 'desc' => 'Membentuk karakter kepanduan dan kemandirian.'],
-                    ['nama' => 'Musik', 'file' => 'musik.jpg', 'desc' => 'Wadah berekspresi melalui alat musik dan vokal.'],
-                    ['nama' => 'Tari', 'file' => 'tari.jpg', 'desc' => 'Melestarikan seni tari tradisional dan modern.'],
-                ];
-            @endphp
-
-            @foreach($ekstras as $item)
+            @forelse($ekstras as $item)
             <div class="ekstra-card">
-                <img src="{{ asset('assets/img/' . $item['file']) }}" alt="{{ $item['nama'] }}">
+                <img src="{{ $item->gambar_1 ? asset('uploads/ekstra/' . $item->gambar_1) : asset('assets/LOGO.png') }}" alt="{{ $item->nama_ekstra }}">
 
                 <div class="ekstra-card-content">
-                    <h4>{{ $item['nama'] }}</h4>
-                    <p>{{ $item['desc'] }}</p>
+                    <h4>{{ $item->nama_ekstra }}</h4>
+                    <p>{{ \Illuminate\Support\Str::limit($item->short_content ?? '-', 120) }}</p>
 
-                    <a href="/detail-ekstra/{{ strtolower($item['nama']) }}" class="btn-detail">
+                    <a href="{{ url('/detailekskul/' . $item->id) }}" class="btn-detail">
                         Baca Selengkapnya <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="ekstra-card" style="min-width: 100%; max-width: 100%;">
+                <div class="ekstra-card-content">
+                    <h4>Belum ada data ekstrakurikuler</h4>
+                    <p>Data akan muncul setelah pengelola menambahkan ekstrakurikuler dari backend.</p>
+                </div>
+            </div>
+            @endforelse
         </div>
     </section>
 

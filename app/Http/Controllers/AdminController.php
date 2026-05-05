@@ -142,6 +142,110 @@ class AdminController extends Controller
         return redirect()->route('galeri.index')->with('success', 'Foto galeri berhasil dihapus.');
     }
 
+    public function galeriPrestasiIndex()
+    {
+        $userId = Session::get('user_id');
+        $data = DB::table('galeri_prestasi')
+            ->join('kategori', 'galeri_prestasi.kategori_id', '=', 'kategori.id')
+            ->where('galeri_prestasi.admin_ekstra_id', $userId)
+            ->select('galeri_prestasi.*', 'kategori.nama_kategori')
+            ->orderByDesc('galeri_prestasi.id')
+            ->get();
+
+        return view('BACKEND.GaleriPrestasi.index', compact('data'));
+    }
+
+    public function galeriPrestasiCreate()
+    {
+        $kategori = DB::table('kategori')->orderBy('nama_kategori')->get();
+        return view('BACKEND.GaleriPrestasi.create', compact('kategori'));
+    }
+
+    public function galeriPrestasiStore(Request $request)
+    {
+        $userId = Session::get('user_id');
+        abort_if(!$userId, 403);
+
+        $validated = $request->validate([
+            'kategori_id' => 'required|exists:kategori,id',
+            'foto' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        DB::table('galeri_prestasi')->insert([
+            'admin_ekstra_id' => $userId,
+            'kategori_id' => $validated['kategori_id'],
+            'foto' => $this->uploadGaleriPrestasiImage($request),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('galeri-prestasi.index')->with('success', 'Galeri prestasi berhasil ditambahkan.');
+    }
+
+    public function galeriPrestasiEdit($id)
+    {
+        $userId = Session::get('user_id');
+        $data = DB::table('galeri_prestasi')
+            ->where('id', $id)
+            ->where('admin_ekstra_id', $userId)
+            ->first();
+        abort_if(!$data, 404);
+
+        $kategori = DB::table('kategori')->orderBy('nama_kategori')->get();
+        return view('BACKEND.GaleriPrestasi.edit', compact('data', 'kategori'));
+    }
+
+    public function galeriPrestasiUpdate(Request $request, $id)
+    {
+        $userId = Session::get('user_id');
+        $data = DB::table('galeri_prestasi')
+            ->where('id', $id)
+            ->where('admin_ekstra_id', $userId)
+            ->first();
+        abort_if(!$data, 404);
+
+        $validated = $request->validate([
+            'kategori_id' => 'required|exists:kategori,id',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        $foto = $data->foto;
+        if ($request->hasFile('foto')) {
+            $this->deleteGaleriPrestasiImage($data->foto);
+            $foto = $this->uploadGaleriPrestasiImage($request);
+        }
+
+        DB::table('galeri_prestasi')
+            ->where('id', $id)
+            ->where('admin_ekstra_id', $userId)
+            ->update([
+                'kategori_id' => $validated['kategori_id'],
+                'foto' => $foto,
+                'updated_at' => now(),
+            ]);
+
+        return redirect()->route('galeri-prestasi.index')->with('success', 'Galeri prestasi berhasil diperbarui.');
+    }
+
+    public function galeriPrestasiDestroy($id)
+    {
+        $userId = Session::get('user_id');
+        $data = DB::table('galeri_prestasi')
+            ->where('id', $id)
+            ->where('admin_ekstra_id', $userId)
+            ->first();
+        abort_if(!$data, 404);
+
+        $this->deleteGaleriPrestasiImage($data->foto);
+
+        DB::table('galeri_prestasi')
+            ->where('id', $id)
+            ->where('admin_ekstra_id', $userId)
+            ->delete();
+
+        return redirect()->route('galeri-prestasi.index')->with('success', 'Galeri prestasi berhasil dihapus.');
+    }
+
     public function ekstraIndex()
     {
         $userId = Session::get('user_id');
@@ -165,6 +269,7 @@ class AdminController extends Controller
 
         $validated = $request->validate([
             'nama_ekstra' => 'required|string|max:255',
+            'short_content' => 'required|string|max:300',
             'deskripsi' => 'required|string',
             'hari' => 'required|string|max:50',
             'jam' => 'required|string|max:100',
@@ -212,6 +317,7 @@ class AdminController extends Controller
 
         $validated = $request->validate([
             'nama_ekstra' => 'required|string|max:255',
+            'short_content' => 'required|string|max:300',
             'deskripsi' => 'required|string',
             'hari' => 'required|string|max:50',
             'jam' => 'required|string|max:100',
@@ -804,6 +910,21 @@ class AdminController extends Controller
         return $filename;
     }
 
+    private function uploadGaleriPrestasiImage(Request $request): string
+    {
+        $file = $request->file('foto');
+        $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
+        $targetPath = public_path('uploads/galeri-prestasi');
+
+        if (!is_dir($targetPath)) {
+            mkdir($targetPath, 0777, true);
+        }
+
+        $file->move($targetPath, $filename);
+
+        return $filename;
+    }
+
     private function deleteEkstraImage(?string $filename): void
     {
         if (!$filename) {
@@ -847,6 +968,18 @@ class AdminController extends Controller
         }
 
         $path = public_path('uploads/berita/' . $filename);
+        if (file_exists($path)) {
+            @unlink($path);
+        }
+    }
+
+    private function deleteGaleriPrestasiImage(?string $filename): void
+    {
+        if (!$filename) {
+            return;
+        }
+
+        $path = public_path('uploads/galeri-prestasi/' . $filename);
         if (file_exists($path)) {
             @unlink($path);
         }

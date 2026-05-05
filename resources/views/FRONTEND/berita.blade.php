@@ -54,79 +54,42 @@
 
             <!-- ===== KONTEN KIRI ===== -->
             <div class="lg:col-span-7 space-y-12">
-                <!-- CARD 1 -->
-                <article class="scroll-animate" data-delay="0">
-                    <img
-    src="{{ asset('assets/berita.jpeg') }}"
-    alt="Berita"
-    class="
-        w-full
-        h-[220px]        <!-- MOBILE -->
-        sm:h-[260px]
-        md:h-[320px]
-        lg:h-[380px]    <!-- DESKTOP -->
-        object-cover
-        object-center
-        rounded-2xl
-    "
->
+                @forelse ($berita as $index => $item)
+                    <article class="scroll-animate" data-delay="{{ min($index * 100, 400) }}">
+                        <img
+                            src="{{ $item->gambar ? asset('uploads/berita/' . $item->gambar) : asset('assets/berita.jpeg') }}"
+                            alt="{{ $item->judul }}"
+                            class="w-full h-[220px] sm:h-[260px] md:h-[320px] lg:h-[380px] object-cover object-center rounded-2xl"
+                        >
 
+                        <div class="flex items-center text-sm text-gray-500 mb-2 gap-2 mt-3">
+                            📅 <span>{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</span>
+                            <span>Kategori :
+                                <a href="{{ url('/berita?kategori=' . $item->category_berita_id) }}" class="font-semibold hover:text-blue-600">
+                                    {{ $item->nama_kategori ?? '-' }}
+                                </a>
+                            </span>
+                        </div>
 
-                    <div class="flex items-center text-sm text-gray-500 mb-2 gap-2">
-                        📅 <span>21 Oktober 2026</span>
-                        <span>Kategori : <b>Riset dan Inovasi</b></span>
-                    </div>
+                        <h2 class="text-2xl font-bold mb-2">
+                            {{ $item->judul }}
+                        </h2>
 
-                    <h2 class="text-2xl font-bold mb-2">
-                        Viral terbaru di Indonesia bagian tengah ada seorang anomali
-                    </h2>
+                        <p class="text-gray-600 mb-4">
+                            {{ \Illuminate\Support\Str::limit(strip_tags($item->deskripsi), 180) }}
+                        </p>
 
-                    <p class="text-gray-600 mb-4">
-                        Viral terbaru di Indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                    </p>
-
-                    <a href="/detailberita"
-                       class="inline-block px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition">
-                        Baca Selengkapnya
-                    </a>
-                </article>
-
-                <!-- CARD 2 (PASTI DI BAWAH) -->
-                <article class="scroll-animate" data-delay="100">
-                    <img
-    src="{{ asset('assets/berita.jpeg') }}"
-    alt="Berita"
-    class="
-        w-full
-        h-[220px]        <!-- MOBILE -->
-        sm:h-[260px]
-        md:h-[320px]
-        lg:h-[380px]    <!-- DESKTOP -->
-        object-cover
-        object-center
-        rounded-2xl
-    "
->
-
-
-                    <div class="flex items-center text-sm text-gray-500 mb-2 gap-2">
-                        📅 <span>18 Oktober 2026</span>
-                        <span>Kategori : <b>Riset dan Inovasi</b></span>
-                    </div>
-
-                    <h2 class="text-2xl font-bold mb-2">
-                        Prestasi membanggakan siswa sekolah tingkat nasional
-                    </h2>
-
-                    <p class="text-gray-600 mb-4">
-                        Siswa sekolah berhasil meraih prestasi nasional.
-                    </p>
-
-                    <a href="/detailberita"
-                       class="inline-block px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition">
-                        Baca Selengkapnya
-                    </a>
-                </article>
+                        <a href="{{ url('/detailberita/' . $item->id) }}"
+                           class="inline-block px-5 py-2 border border-blue-600 text-blue-600 rounded-full text-sm hover:bg-blue-600 hover:text-white transition">
+                            Baca Selengkapnya
+                        </a>
+                    </article>
+                @empty
+                    <article class="scroll-animate" data-delay="0">
+                        <h2 class="text-2xl font-bold mb-2">Belum ada berita</h2>
+                        <p class="text-gray-600 mb-4">Data berita akan tampil setelah ditambahkan dari backoffice.</p>
+                    </article>
+                @endforelse
             </div>
 
              <!-- ===== SIDEBAR ===== -->
@@ -139,9 +102,7 @@
             <div class="scroll-animate-right" data-delay="0">
                 <div class="flex items-center border border-gray-300 rounded-xl px-4 py-3">
                     <span class="text-gray-400 mr-2">🔍</span>
-                    <input type="text"
-                           placeholder="Cari"
-                           class="w-full text-sm outline-none">
+                    <input type="text" placeholder="Cari" class="w-full text-sm outline-none" disabled>
                 </div>
             </div>
 
@@ -149,11 +110,13 @@
             <div class="scroll-animate-right" data-delay="100">
                 <h6 class="text-sm font-bold mb-3">Kategori</h6>
                 <div class="flex flex-wrap gap-2">
-                    <a href="{{ url('/kategori-berita?kategori=inovasi-bla-bla') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi bla bla</a>
-                    <a href="{{ url('/kategori-berita?kategori=inovasi') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi</a>
-                    <a href="{{ url('/kategori-berita?kategori=inovasi-anjay') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi anjay</a>
-                    <a href="{{ url('/kategori-berita?kategori=inovasi-itu') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi itu</a>
-                    <a href="{{ url('/kategori-berita?kategori=inovasi-ini') }}" class="px-4 py-1.5 text-xs rounded-full border text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Inovasi ini</a>
+                    <a href="{{ url('/berita') }}" class="px-4 py-1.5 text-xs rounded-full border {{ empty(optional($kategoriAktif)->id) ? 'bg-blue-600 text-white border-blue-600' : 'text-gray-600' }} hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">Semua</a>
+                    @foreach ($kategoriList as $kategori)
+                        <a href="{{ url('/berita?kategori=' . $kategori->id) }}"
+                           class="px-4 py-1.5 text-xs rounded-full border {{ optional($kategoriAktif)->id == $kategori->id ? 'bg-blue-600 text-white border-blue-600' : 'text-gray-600' }} hover:bg-blue-600 hover:text-white hover:border-blue-600 transition">
+                            {{ $kategori->nama_kategori }}
+                        </a>
+                    @endforeach
                 </div>
             </div>
 
@@ -163,34 +126,23 @@
 
                 <section class="space-y-4">
 
-                    <!-- Item -->
-                    <a href="/detailberita" class="flex gap-4 hover:opacity-80 transition">
-                        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
-                             class="w-24 h-16 object-cover rounded-lg"
-                             alt="">
-                        <section>
-                            <h4 class="text-sm font-semibold leading-snug">
-                                Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                            </h4>
-                            <p class="text-xs text-gray-500 mt-1">
-                                21 Oktober 2026
-                            </p>
-                        </section>
-                    </a>
-
-                    <a href="/detailberita" class="flex gap-4 hover:opacity-80 transition">
-                        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf"
-                             class="w-24 h-16 object-cover rounded-lg"
-                             alt="">
-                        <section>
-                            <h4 class="text-sm font-semibold leading-snug">
-                                Viral terbaru di indonesia bagian tengah ada seorang anomali berbuat tidak senonoh
-                            </h4>
-                            <p class="text-xs text-gray-500 mt-1">
-                                21 Oktober 2026
-                            </p>
-                        </section>
-                    </a>
+                    @forelse ($beritaPopuler as $populer)
+                        <a href="{{ url('/detailberita/' . $populer->id) }}" class="flex gap-4 hover:opacity-80 transition">
+                            <img src="{{ $populer->gambar ? asset('uploads/berita/' . $populer->gambar) : asset('assets/berita.jpeg') }}"
+                                 class="w-24 h-16 object-cover rounded-lg"
+                                 alt="{{ $populer->judul }}">
+                            <section>
+                                <h4 class="text-sm font-semibold leading-snug">
+                                    {{ \Illuminate\Support\Str::limit($populer->judul, 70) }}
+                                </h4>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    {{ \Carbon\Carbon::parse($populer->created_at)->translatedFormat('d F Y') }}
+                                </p>
+                            </section>
+                        </a>
+                    @empty
+                        <p class="text-sm text-gray-500">Belum ada berita populer.</p>
+                    @endforelse
 
                 </section>
             </section>
